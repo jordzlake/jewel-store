@@ -1,4 +1,5 @@
 body {
+  position: relative;
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -6,9 +7,11 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
   overflow-x: hidden;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

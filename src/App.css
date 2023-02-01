@@ -537,12 +537,27 @@ a {
   }
   .bannerMenu {
     padding: 20px 0;
+    min-width: 300px;
+  }
+  .bannerSearchForm {
+    width: 88%;
+    min-width: 280px;
   }
   .searchFormRow label {
     padding-left: 0;
   }
 }
 
+@media (min-width: 400px) and (max-width: 767px) {
+  .bannerMenu {
+    padding: 40px 20px;
+    min-width: 300px;
+  }
+  .bannerSearchForm {
+    width: 70%;
+    min-width: 280px;
+  }
+}
 /*Generic*/
 
 .fullcnt {
