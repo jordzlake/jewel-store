@@ -1,38 +1,633 @@
-.App {
-  text-align: center;
+:root {
+  --pink: #f4ddcb;
+  --lighter-yellow: #ffe7a5;
+  --light-yellow: #f5ea7d;
+  --yellow: #f1a80b;
+  --orange: #e55411;
+  --lighter-orange: #ffdba2;
+  --light-orange: #efb456;
+  --dark-orange: #8c2c00;
+  --dm-orange: #ff793c;
+  --light-red: #ffcb97;
+  --red: #e41617;
+  --white: #ffffff;
+  --dark-text: #4e4e4e;
+  --darker-text: #252525;
+  --orange-grad: linear-gradient(90deg, var(--orange) 10%, var(--red) 200%);
+}
+/*Page Elements*/
+body {
+  font-family: "Roboto", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--orange) transparent;
+  overflow-y: scroll;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+a {
+  text-decoration: none;
+}
+.colx {
+  padding: 0;
+  margin: 0;
+}
+.page-container {
+  padding: 0 40px;
+  position: relative;
+}
+.row {
+  --bs-gutter-x: 0rem;
+}
+/*Main Nav Elements*/
+.header-nav {
+  background: linear-gradient(90deg, #e55411 0%, #f5ea7d 61.25%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  position: fixed;
+  width: 100vw;
+}
+.nav-pos .row {
+  z-index: 4;
+  position: relative;
+}
+.jewel-logo {
+  width: 120px;
+  margin-left: 20px;
+}
+.jewel-logo-container {
+  width: 200px;
+  border-radius: 0px 79px 0px 79px;
+  background-color: var(--white);
+  overflow: hidden;
+}
+/*Nav List Elements*/
+.jewel-nav-list-container {
+  justify-content: end;
   display: flex;
-  flex-direction: column;
+}
+.jewel-nav-list {
+  list-style-type: none;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0;
+  margin: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.jewel-nav-list li {
+  display: inline;
+  padding: 0 15px;
 }
+.jewel-nav-link {
+  color: var(--dark-orange);
+  transition: all 0.3s;
+}
+.jewel-nav-link:hover {
+  color: var(--orange);
+  font-weight: 600px;
+  font-size: 20px;
+  text-decoration: none;
+}
+/*Nav Dropdown Elements*/
+.dropdown-icon {
+  background-color: transparent;
+  color: var(--dark-orange);
 
-@keyframes App-logo-spin {
+  font-size: larger;
+  border: solid 2px var(--light-orange);
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.drpdown-list {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the menu right under the button */
+  right: 0;
+  animation: slideDown 0.3s ease; /* Add the slideDown animation */
+
+  z-index: 1000;
+  min-width: 10rem;
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+}
+.drpdown-relative {
+  position: relative;
+}
+.drpdown-list.show {
+  display: none;
+}
+.drpdown-item {
+  padding: 2vh;
+  text-align: center;
+  display: block;
+  color: var(--dark-orange);
+}
+.drpdown-item:hover {
+  background-color: var(--light-orange);
+  color: var(--white);
+}
+.jewel-nav-button {
+  display: none;
+}
+.flip {
+  background-color: white;
+  color: var(--dark-orange);
+  border: var(--yellow) 2px var(--light-orange);
+}
+/* The slideDown animation */
+@keyframes slideDown {
   from {
-    transform: rotate(0deg);
+    transform: translateY(-10px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
+}
+.fixed-drop {
+  position: fixed;
+}
+/*Nav Vector Styling*/
+.nav-style {
+  opacity: 0.8;
+  position: absolute;
+}
+.nav-style-lower {
+  top: 26px;
+  left: 130px;
+  transform: scale(0.8);
+}
+.nav-style-upper {
+  top: -14px;
+  left: -97px;
+  transform: scale(0.8);
+}
+.nav-pos {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/*Banner*/
+.jewel-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.jewel-banner img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.jewel-msg {
+  padding: 80px 0;
+}
+.announcement {
+  padding-bottom: 25px;
+  display: block;
+  color: var(--white);
+  text-shadow: 0px 6px 7px rgba(0, 0, 0, 0.69);
+}
+.announcement-btn {
+  padding: 7px 70px;
+  display: block;
+  font-size: larger;
+  text-shadow: 0px 6px 7px rgba(0, 0, 0, 0.69);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 41px;
+}
+.announcement-btn:hover {
+  transform: scale(1.1);
+}
+.banner-container {
+  height: 100vh;
+  padding-top: 72px;
+  overflow: hidden;
+}
+.banner-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(53, 59, 71, 0.18),
+    rgba(53, 59, 71, 0.18)
+  );
+  top: 0;
+  left: 0;
+}
+.hideBannerButton {
+  display: none;
+}
+
+.bannerMenu {
+  display: none;
+  background-color: var(--orange);
+  border-radius: 20px;
+  padding: 20px 40px 40px;
+  color: var(--white);
+}
+.bannerInstructions {
+  font-size: large;
+}
+.bannerSearchForm {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.searchFormRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0 10px;
+}
+.showBannerMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchFormRow label {
+  padding-left: 10%;
+}
+.searchFormRow input {
+  border: none;
+  border-radius: 2px;
+}
+.searchFormButton {
+  width: 40%;
+  min-width: 200px;
+  align-self: center;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: var(--orange);
+  font-size: large;
+  border-radius: 30px;
+}
+/*New Listings*/
+.new-listings {
+  padding: 150px 0 240px;
+}
+
+.new-listings .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+
+/*Rental Listings*/
+.rental-listings {
+  padding: 150px 0 240px;
+  background-color: var(--lighter-yellow);
+}
+
+.rental-listings .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+
+/*Lands Listings*/
+.lands-listings {
+  padding: 150px 0 240px;
+  background-color: var(--lighter-orange);
+}
+
+.lands-listings .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+/*Houses Listings*/
+.houses-listings {
+  padding: 150px 0 240px;
+  background-color: var(--light-red);
+}
+
+.houses-listings .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+/*Tree Svgs*/
+.tree-vectors {
+  position: relative;
+}
+.tree {
+  color: var(--darker-text);
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 600px;
+  min-height: 700px;
+}
+.t1 {
+  top: -180px;
+  left: -250px;
+}
+.t2 {
+  top: -180px;
+  right: -250px;
+}
+
+/*CommercialListings*/
+.commercial-listings {
+  padding: 150px 0 240px;
+  background-color: var(--dark-text);
+}
+
+.commercial-listings .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+/*Cards*/
+.listings {
+  transform: translateZ(0);
+}
+.card-container {
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}
+.card-obj {
+  will-change: transform;
+  margin-right: 20px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.31);
+  transition: all 0.5s;
+}
+.card-obj:hover {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.21);
+  transform: scale(1.05) translate3d(0, 0, 0);
+}
+.card-info-container {
+  height: 50%;
+  justify-content: center;
+  padding: 0.8em;
+  overflow: hidden;
+}
+.card-container {
+  object-fit: fill;
+}
+.card-image-container {
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+}
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-name {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+.card-cost {
+  font-style: normal;
+  font-weight: 700;
+  font-size: xx-large;
+  line-height: 35px;
+  margin-bottom: 4px;
+}
+.card-rooms {
+  margin: 0px;
+}
+.size {
+  margin: 0px;
+}
+.section-title {
+  margin-bottom: 30px;
+}
+
+/*Footer*/
+.jewel-footer {
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0 20px;
+  background-color: var(--darker-text);
+  color: var(white);
+}
+
+.socials {
+  color: var(--white);
+  padding: 10px;
+  font-size: xx-large;
+  text-align: center;
+}
+.socials i {
+  padding: 10px;
+}
+.footer-list {
+  color: white;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.jewel-copyright {
+  color: white;
+}
+.jewel-copyright i {
+  padding-right: 8px;
+}
+
+/*Medium devices (desktops, 992px and down)*/
+@media (max-width: 992px) {
+  h1 {
+    font-size: 45px;
+  }
+  .jewel-msg {
+    padding: 0px 0px;
+    text-align: center;
+  }
+
+  .banner-container {
+    padding-top: 60px;
+  }
+  .page-container {
+    padding: 0 20px;
+  }
+  .jewel-logo {
+    width: 100px;
+  }
+}
+@media (max-width: 785px) {
+  li a {
+    font-size: smaller;
+  }
+}
+@media (min-width: 767px) and (max-width: 768px) {
+  .col-12.colx {
+    width: 30%;
+  }
+  .col-12.col-md-8.colx {
+    width: 70%;
+  }
+}
+/*Small devices (tablets, 768px and down)*/
+@media (max-width: 767px) {
+  .drpdown-list.show {
+    display: block;
+  }
+  .page-container {
+    padding: 0 20px;
+  }
+  .jewel-nav-list-container {
+    display: none;
+  }
+  .jewel-nav-button {
+    display: block;
+  }
+  .card-container {
+    height: 300px;
+    width: 300px;
+
+    overflow: hidden;
+  }
+  /*Cards*/
+  .card-name {
+    margin-bottom: 13px;
+  }
+  .card-cost {
+    font-size: x-large;
+    margin: 0px;
+  }
+
+  .card-rooms {
+    margin: 0px;
+  }
+  .size {
+    margin: 0px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .section-info {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .bannerMenu {
+    padding: 20px 0;
+  }
+  .searchFormRow label {
+    padding-left: 0;
+  }
+}
+
+/*Generic*/
+
+.fullcnt {
+  width: 100%;
+  height: 100%;
+}
+.jewel-transparent {
+  background-color: transparent;
+  color: var(--white);
+  font-weight: bold;
+  border-color: var(--white);
+  border-width: 1px;
+  border-style: solid;
+  transition: all 0.2s;
+}
+.jewel-transparent:hover {
+  background-color: var(--orange);
+  color: var(--darker-text);
+  border-color: transparent;
+  text-shadow: none;
+  font-weight: bold;
+  color: var(--white);
+}
+.jewel-transparent-alt {
+  margin-top: 70px;
+  background-color: transparent;
+  color: var(--orange);
+  align-self: center;
+  font-weight: bold;
+  border-color: var(--orange);
+  border-width: 1px;
+  border-style: solid;
+  transition: all 0.2s;
+  padding: 15px 10px;
+  text-align: center;
+}
+.jewel-transparent-alter {
+  color: var(--dm-orange);
+  border-color: var(--dm-orange);
+}
+.jewel-transparent-alt:hover {
+  background-color: var(--orange);
+  color: var(--darker-text);
+  border-color: transparent;
+  text-shadow: none;
+  font-weight: bold;
+  color: var(--white);
+}
+.jewel-transparent-alter:hover {
+  background-color: var(--dm-orange);
+}
+
+.jewel-rounded {
+  border-radius: 12px;
+}
+
+.jewel-small {
+  width: 10%;
+  min-width: 40vw;
+}
+.jewel-md {
+  width: 30%;
+  min-width: 160px;
+}
+.jewel-lg {
+  width: 50%;
+}
+.jewel-orange {
+  color: var(--orange);
+}
+.jewel-black {
+  color: var(--dark-text);
+}
+.jewel-vblack {
+  color: var(--darker-text);
+}
+.jewel-vorange {
+  color: var(--dark-orange);
+}
+.jewel-dmorange {
+  color: var(--dm-orange);
+}
+.jewel-white {
+  color: var(--white);
+}
+.jewel-red {
+  color: var(--red);
 }
