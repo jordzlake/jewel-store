@@ -536,7 +536,7 @@ a {
     margin-bottom: 60px;
   }
   .bannerMenu {
-    padding: 20px 0;
+    padding: 20px 10px;
     min-width: 300px;
   }
   .bannerSearchForm {
@@ -545,6 +545,9 @@ a {
   }
   .searchFormRow label {
     padding-left: 0;
+  }
+  .searchFormRow input {
+    width: 50%;
   }
 }
 
@@ -556,6 +559,22 @@ a {
   .bannerSearchForm {
     width: 70%;
     min-width: 280px;
+  }
+}
+/*Rotation*/
+@media (max-height: 600px) {
+  .banner-container {
+    height: 120vh;
+  }
+}
+@media (max-height: 400px) {
+  .banner-container {
+    height: 150vh;
+  }
+}
+@media (max-height: 300px) {
+  .banner-container {
+    height: 700px;
   }
 }
 /*Generic*/
