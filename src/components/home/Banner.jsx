@@ -30,7 +30,7 @@ const Banner = () => {
         <div className="page-container fullcnt">
           <div className="row jewel-msg fullcnt">
             <div className="d-flex flex-column align-items-center justify-content-center">
-              <h1 className="announcement">Jaya is Amazing(ly Gay)</h1>
+              <h1 className="announcement">Search for the Perfect Home</h1>
               <button
                 onClick={handleClick}
                 className={`${
