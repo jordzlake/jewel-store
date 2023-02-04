@@ -27,12 +27,11 @@ const Header = () => {
           <div className="col-12 col-md-4 colx d-flex justify-content-between align-items-center">
             <div className="jewel-logo-container d-flex justify-content-center">
               <Link to={"/"} className="">
-                {/*<img
+                <img
                   className="jewel-logo"
                   src="/images/JewelLogo.jpg"
                   alt="Jewel"
-  />*/}
-                <h1>Jaya is Gay</h1>
+                />
               </Link>
             </div>
             <div className=" jewel-nav-button">
