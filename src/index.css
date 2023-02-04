@@ -10,7 +10,7 @@ body {
 }
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
