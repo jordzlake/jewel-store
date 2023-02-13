@@ -1,5 +1,5 @@
 body {
-  height: auto;
+  overscroll-behavior-y: none;
   margin: 0;
   box-sizing: border-box;
   padding: 0;
