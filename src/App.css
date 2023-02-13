@@ -20,7 +20,8 @@ body {
   font-family: "Roboto", sans-serif;
   scrollbar-width: thin;
   scrollbar-color: var(--orange) transparent;
-  overflow-y: auto;
+  overflow-y: scroll;
+  position: static;
 }
 
 ::-webkit-scrollbar {
