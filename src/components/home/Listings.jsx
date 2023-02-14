@@ -1,6 +1,8 @@
 import React from "react";
+import Slider from "react-slick";
 import newlistings from "../../data/NewListings";
 import Card from "../Card";
+import settings from "../SlickSettings";
 import DirectionButton from "./../DirectionButton";
 
 const Listings = () => {
@@ -14,7 +16,7 @@ const Listings = () => {
               Select an item to see more information.
             </p>
           </div>
-          <div className="listings d-flex">
+          <Slider {...settings}>
             {newlistings.map((listitem) => (
               <div key={listitem._id}>
                 <Card
@@ -28,7 +30,7 @@ const Listings = () => {
                 />
               </div>
             ))}
-          </div>
+          </Slider>
           <DirectionButton path={"/"} />
         </div>
       </div>

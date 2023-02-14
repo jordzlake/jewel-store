@@ -24,9 +24,37 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="banner-container">
+    <div className="banner-container ">
       <div className="jewel-banner">
-        <img src="/images/IntroHouse2.jpg" alt="Intro House" />
+        <div
+          id="carouselExampleFade"
+          className="carousel slide carousel-fade j-carousel"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner j-carousel">
+            <div className="carousel-item active j-carouselb">
+              <img
+                src="/images/IntroHouse2.jpg"
+                className="j-carouselb"
+                alt="Intro House"
+              />
+            </div>
+            <div className="carousel-item j-carouselb">
+              <img
+                src="/images/CityEscapeHouses2.jpg"
+                className="j-carouselb"
+                alt="Intro House 2"
+              />
+            </div>
+            <div className="carousel-item j-carouselb">
+              <img
+                src="/images/RedHouse2.jpg"
+                className="j-carouselb"
+                alt="Intro House"
+              />
+            </div>
+          </div>
+        </div>
         <div className="page-container fullcnt">
           <div className="row jewel-msg fullcnt">
             <div className="d-flex flex-column align-items-center justify-content-center">

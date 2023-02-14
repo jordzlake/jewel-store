@@ -2,6 +2,8 @@ import React from "react";
 import lands from "../../data/Lands";
 import Card from "../Card";
 import DirectionButton from "./../DirectionButton";
+import Slider from "react-slick";
+import settings from "../SlickSettings";
 
 const Lands = () => {
   return (
@@ -14,7 +16,7 @@ const Lands = () => {
               Select an item to see more information.
             </p>
           </div>
-          <div className="listings d-flex">
+          <Slider {...settings}>
             {lands.map((listitem) => (
               <div key={listitem._id}>
                 <Card
@@ -28,7 +30,7 @@ const Lands = () => {
                 />
               </div>
             ))}
-          </div>
+          </Slider>
           <DirectionButton path={"/"} />
         </div>
       </div>

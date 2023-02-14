@@ -2,6 +2,8 @@ import React from "react";
 import Card from "../Card";
 import commercial from "./../../data/Commercial";
 import DirectionButton from "./../DirectionButton";
+import Slider from "react-slick";
+import settings from "../SlickSettings";
 
 const Commercial = () => {
   return (
@@ -14,7 +16,7 @@ const Commercial = () => {
               Select an item to see more information.
             </p>
           </div>
-          <div className="listings d-flex">
+          {/*<div className="listings d-flex">
             {commercial.map((listitem) => (
               <div key={listitem._id}>
                 <Card
@@ -28,7 +30,22 @@ const Commercial = () => {
                 />
               </div>
             ))}
-          </div>
+            </div>*/}
+          <Slider {...settings}>
+            {commercial.map((listitem) => (
+              <div key={listitem._id}>
+                <Card
+                  name={listitem.name}
+                  price={listitem.price}
+                  bedrooms={listitem.bedrooms}
+                  bathrooms={listitem.bathrooms}
+                  size={listitem.size}
+                  im={listitem.image}
+                  redir={`/${listitem.name + "_" + listitem._id}`}
+                />
+              </div>
+            ))}
+          </Slider>
           <DirectionButton path={"/"} alt={true} />
         </div>
       </div>

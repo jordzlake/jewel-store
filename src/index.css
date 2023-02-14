@@ -7,6 +7,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.slick-prev:before,
+.slick-next:before {
+  color: var(--dm-orange) !important;
+}
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+  margin: 0 -10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--orange) !important;
+}
 
 html,
 body {
