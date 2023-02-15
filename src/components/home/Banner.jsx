@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import fadesettings from "../SlickFadeSettings";
 
 const Banner = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -26,34 +28,18 @@ const Banner = () => {
   return (
     <div className="banner-container ">
       <div className="jewel-banner">
-        <div
-          id="carouselExampleFade"
-          className="carousel slide carousel-fade j-carousel"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner j-carousel">
-            <div className="carousel-item active j-carouselb">
-              <img
-                src="/images/IntroHouse2.jpg"
-                className="j-carouselb"
-                alt="Intro House"
-              />
+        <div className="j-carousel">
+          <Slider {...fadesettings}>
+            <div>
+              <img src="/images/IntroHouse2.jpg" alt="Intro House" />
             </div>
-            <div className="carousel-item j-carouselb">
-              <img
-                src="/images/CityEscapeHouses2.jpg"
-                className="j-carouselb"
-                alt="Intro House 2"
-              />
+            <div>
+              <img src="/images/CityEscapeHouses2.jpg" alt="Intro House 2" />
             </div>
-            <div className="carousel-item j-carouselb">
-              <img
-                src="/images/RedHouse2.jpg"
-                className="j-carouselb"
-                alt="Intro House"
-              />
+            <div>
+              <img src="/images/RedHouse2.jpg" alt="Intro House" />
             </div>
-          </div>
+          </Slider>
         </div>
         <div className="page-container fullcnt">
           <div className="row jewel-msg fullcnt">
