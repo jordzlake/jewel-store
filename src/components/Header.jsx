@@ -67,7 +67,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"} className="jewel-nav-link">
+                  <Link to={"/contact"} className="jewel-nav-link">
                     Contact Us
                   </Link>
                 </li>
@@ -103,7 +103,7 @@ const Header = () => {
           <Link to="/" className="drpdown-item">
             Buildings
           </Link>
-          <Link to="/" className="drpdown-item">
+          <Link to="/contact" className="drpdown-item">
             Contact Us
           </Link>
           <Link to="/" className="drpdown-item">

@@ -51,6 +51,12 @@ a {
 .row {
   --bs-gutter-x: 0rem;
 }
+.ctfix {
+  height: 100vh;
+  padding-top: 72px;
+  overflow: hidden;
+  min-height: 720px;
+}
 /*Main Nav Elements*/
 .header-nav {
   background: linear-gradient(90deg, #e55411 0%, #f5ea7d 61.25%);
@@ -259,6 +265,7 @@ a {
 .announcement-btn:hover {
   transform: scale(1.1);
 }
+
 .banner-container {
   height: 100vh;
   padding-top: 72px;
@@ -494,6 +501,21 @@ a {
   padding-right: 8px;
 }
 
+/*Contact Screen*/
+.contactHeading {
+  margin-top: 0.3em;
+}
+.contactTitle {
+  margin-top: 1em;
+}
+.addressdetails {
+  margin-bottom: 0.5rem;
+}
+.contact-ad-map {
+  padding: 10px;
+  height: 70%;
+}
+
 /*Medium devices (desktops, 992px and down)*/
 @media (max-width: 992px) {
   h1 {
@@ -658,6 +680,7 @@ a {
   text-shadow: none;
   font-weight: bold;
   color: var(--white);
+  cursor: pointer;
 }
 .jewel-transparent-alt {
   margin-top: 70px;
@@ -702,6 +725,10 @@ a {
 }
 .jewel-lg {
   width: 50%;
+  display: block;
+}
+.jewel-nm {
+  margin: 0;
 }
 .jewel-orange {
   color: var(--orange);
