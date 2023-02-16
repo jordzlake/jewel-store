@@ -8,6 +8,7 @@ import Houses from "../components/home/Houses";
 import Commercial from "./../components/home/Commercial";
 import Footer from "../components/Footer";
 const HomeScreen = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
       <div>
