@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 //
-const Card = ({ name, price, bedrooms, bathrooms, size, im, redir }) => {
+const Card = ({
+  name,
+  price,
+  bedrooms,
+  bathrooms,
+  size,
+  im,
+  redir,
+  type,
+  loc,
+}) => {
   const linkto = redir ? redir : "/";
   return (
     <Link to={linkto}>
@@ -11,13 +21,18 @@ const Card = ({ name, price, bedrooms, bathrooms, size, im, redir }) => {
             <img src={`${im}`} alt="" />
           </div>
           <div className="d-flex flex-column card-info-container">
-            <p className="card-name">{`${name}`}</p>
-            <p className="card-cost">{`${price}`}</p>
-            <p className="card-rooms">
-              <b>{`${bedrooms}`}</b> Bedrooms, <b>{`${bathrooms}`}</b> Bathrooms
+            <p className="card-name">
+              {`${name}`} - {`${loc}`}
             </p>
+            <p className="card-cost">{`${price}`}</p>
+            {type !== "land" && (
+              <p className="card-rooms">
+                <b>{`${bedrooms}`}</b> Bedrooms, <b>{`${bathrooms}`}</b>{" "}
+                Bathrooms
+              </p>
+            )}
             <p className="size">
-              <b>{`${size}`}</b> sq ft.
+              <b>{`${size}`}</b> {type !== "land" ? "sq ft" : "acres"}.
             </p>
           </div>
         </div>

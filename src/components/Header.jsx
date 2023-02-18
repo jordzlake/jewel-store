@@ -52,17 +52,17 @@ const Header = () => {
             <nav>
               <ul className="jewel-nav-list">
                 <li>
-                  <Link to={"/"} className="jewel-nav-link">
+                  <Link to={"/items/home"} className="jewel-nav-link">
                     Homes
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"} className="jewel-nav-link">
+                  <Link to={"/items/land"} className="jewel-nav-link">
                     Lands
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"} className="jewel-nav-link">
+                  <Link to={"/items/building"} className="jewel-nav-link">
                     Buildings
                   </Link>
                 </li>
@@ -72,7 +72,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"} className="jewel-nav-link">
+                  <Link to={"/mission"} className="jewel-nav-link">
                     Our Mission
                   </Link>
                 </li>
@@ -94,19 +94,19 @@ const Header = () => {
       </div>
       <div className="drpdown-relative">
         <div className={`drpdown-list ${showDropdown ? "show" : ""}`}>
-          <Link to="/" className="drpdown-item">
+          <Link to="/items/home" className="drpdown-item">
             Homes
           </Link>
-          <Link to="/" className="drpdown-item">
+          <Link to="/items/land" className="drpdown-item">
             Lands
           </Link>
-          <Link to="/" className="drpdown-item">
+          <Link to="/items/building" className="drpdown-item">
             Buildings
           </Link>
           <Link to="/contact" className="drpdown-item">
             Contact Us
           </Link>
-          <Link to="/" className="drpdown-item">
+          <Link to="/mission" className="drpdown-item">
             Our Mission
           </Link>
         </div>

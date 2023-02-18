@@ -27,6 +27,8 @@ const Rentals = () => {
                   size={listitem.size}
                   im={listitem.image}
                   redir={`/${listitem.name + "_" + listitem._id}`}
+                  type={"home"}
+                  loc={"San Jaun"}
                 />
               </div>
             ))}

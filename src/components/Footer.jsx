@@ -19,10 +19,9 @@ const Footer = () => {
         <li>
           <Link to="/contact">Contact Us</Link>
         </li>
-        <li>Feedback</li>
-        <li>Ad Choices</li>
-        <li>Website</li>
-        <li>Help</li>
+        <li>
+          <Link to="/mission">Mission</Link>
+        </li>
       </ul>
       <div className="jewel-copyright">
         <p>

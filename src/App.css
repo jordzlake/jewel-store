@@ -54,7 +54,9 @@ a {
 .ctfix {
   padding-top: 72px;
   overflow: hidden;
-  position: relative;
+}
+.ctspread {
+  padding: 50px 0;
 }
 .jewel-ct-flex {
   display: flex;
@@ -270,7 +272,7 @@ a {
 }
 
 .banner-container {
-  height: 100vh;
+  height: 105vh;
   padding-top: 72px;
   overflow: hidden;
 }
@@ -306,20 +308,37 @@ a {
   flex-direction: column;
   width: 60%;
 }
-.searchFormRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 5px 0 10px;
-}
+
 .showBannerMenu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.searchFormRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0 10px;
+}
+.rowItem {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  width: inherit;
+  height: 100%;
+  margin: 0;
+}
+.labrowItem {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  align-self: flex-end;
+}
 .searchFormRow label {
-  padding-left: 10%;
+  padding-right: 10px;
+  text-align: right;
 }
 .searchFormRow input {
   border: none;
@@ -508,9 +527,6 @@ a {
 }
 
 /*Contact Screen*/
-.contactHeading {
-  margin-top: 0.3em;
-}
 .contactTitle {
   margin-top: 1em;
 }
@@ -523,10 +539,12 @@ a {
 }
 .jewel-map {
   border: 1px solid var(--dm-orange);
+  padding: 1px;
 }
 
 .contact-ct {
   flex-grow: 1;
+  min-height: 80vh;
 }
 .contactAdditional {
   display: flex;
@@ -558,9 +576,38 @@ a {
   border-radius: 50px;
   font-size: 30px;
 }
+/*Gallery Screen*/
 
+.gallery-container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.gallery-container .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+
+.gallery-card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(25% - 20px);
+  margin: 10px;
+}
+.gallery-card:last-child {
+  align-self: flex-start;
+}
+/*Mission Screen*/
+
+.mission-container {
+  height: 90vh;
+}
 /*Medium devices (desktops, 992px and down)*/
-@media (max-width: 992px) {
+@media (max-width: 994px) {
   h1 {
     font-size: 45px;
   }
@@ -581,6 +628,9 @@ a {
   }
   .jewel-logo {
     width: 100px;
+  }
+  .gallery-card {
+    flex-basis: calc(33% - 20px);
   }
 }
 @media (max-width: 785px) {
@@ -654,6 +704,9 @@ a {
   .searchFormRow input {
     width: 50%;
   }
+  .gallery-card {
+    flex-basis: calc(50% - 20px);
+  }
 }
 
 @media (min-width: 400px) and (max-width: 767px) {
@@ -680,6 +733,9 @@ a {
   .card-cost {
     font-size: large;
   }
+  .gallery-card {
+    flex-basis: calc(100% - 20px);
+  }
 }
 @media (max-width: 300px) {
   .card-name {
@@ -692,12 +748,12 @@ a {
 /*Rotation*/
 @media (max-height: 600px) {
   .banner-container {
-    height: 120vh;
+    height: 160vh;
   }
 }
 @media (max-height: 400px) {
   .banner-container {
-    height: 150vh;
+    height: 190vh;
   }
 }
 @media (max-height: 300px) {
@@ -754,6 +810,7 @@ a {
   font-weight: bold;
   color: var(--white);
 }
+
 .jewel-transparent-alter:hover {
   background-color: var(--dm-orange);
 }

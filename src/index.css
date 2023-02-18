@@ -24,6 +24,12 @@ body {
   color: var(--orange) !important;
 }
 
+textarea,
+input,
+select {
+  outline: none;
+}
+
 html,
 body {
   overflow-x: hidden;

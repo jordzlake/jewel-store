@@ -42,6 +42,8 @@ const Commercial = () => {
                   size={listitem.size}
                   im={listitem.image}
                   redir={`/${listitem.name + "_" + listitem._id}`}
+                  type={"building"}
+                  loc={"San Jaun"}
                 />
               </div>
             ))}

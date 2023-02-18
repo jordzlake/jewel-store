@@ -27,6 +27,8 @@ const Lands = () => {
                   size={listitem.size}
                   im={listitem.image}
                   redir={`/${listitem.name + "_" + listitem._id}`}
+                  type={"land"}
+                  loc={"San Jaun"}
                 />
               </div>
             ))}
