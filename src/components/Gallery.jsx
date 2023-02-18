@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import items from "../data/Items";
 import Card from "./Card";
 
@@ -66,21 +67,30 @@ const Gallery = ({ filter }) => {
     <div>
       <p>Select an item below to view:</p>
       <div className="gallery-container">
-        {displayItems.map((listitem) => (
-          <div className="gallery-card" key={listitem._id}>
-            <Card
-              name={listitem.name}
-              price={listitem.price}
-              bedrooms={listitem.bedrooms}
-              bathrooms={listitem.bathrooms}
-              size={listitem.size}
-              im={listitem.mainImage}
-              redir={`/${listitem.name + "_" + listitem._id}`}
-              type={listitem.type}
-              loc={listitem.city}
-            />
-          </div>
-        ))}
+        {displayItems.length > 0 ? (
+          displayItems.map((listitem) => (
+            <div className="gallery-card" key={listitem._id}>
+              <Card
+                name={listitem.name}
+                price={listitem.price}
+                bedrooms={listitem.bedrooms}
+                bathrooms={listitem.bathrooms}
+                size={listitem.size}
+                im={listitem.mainImage}
+                redir={`/${listitem.name + "_" + listitem._id}`}
+                type={listitem.type}
+                loc={listitem.city}
+              />
+            </div>
+          ))
+        ) : (
+          <p>
+            No Items found.{" "}
+            <Link to={"/"} className="jewel-orange">
+              Click to go Back.
+            </Link>
+          </p>
+        )}
       </div>
     </div>
   );
