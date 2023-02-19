@@ -29,9 +29,9 @@ const Gallery = ({ filter }) => {
         const lowerprice = Number(searchParams.get("lowerprice").slice(1));
         const loc = searchParams.get("location");
 
-        console.log(
-          `loc:${loc} type:${type} lowerprice=${lowerprice} higherprice=${higherprice} bedrooms=${bedrooms} bathrooms=${bathrooms}`
-        );
+        // console.log(
+        //   `loc:${loc} type:${type} lowerprice=${lowerprice} higherprice=${higherprice} bedrooms=${bedrooms} bathrooms=${bathrooms}`
+        // );
         const temp = allItems.filter((item) => {
           if (loc === "Other") {
             return (
@@ -77,7 +77,7 @@ const Gallery = ({ filter }) => {
                 bathrooms={listitem.bathrooms}
                 size={listitem.size}
                 im={listitem.mainImage}
-                redir={`/${listitem.name + "_" + listitem._id}`}
+                redir={`/item/${listitem._id}`}
                 type={listitem.type}
                 loc={listitem.city}
               />

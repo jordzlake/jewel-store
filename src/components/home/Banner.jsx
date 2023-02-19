@@ -121,6 +121,9 @@ const Banner = () => {
                       <option key="3" value="building">
                         Buildings
                       </option>
+                      <option key="4" value="rent">
+                        Rentals
+                      </option>
                     </select>
                   </div>
                   <div className="searchFormRow">

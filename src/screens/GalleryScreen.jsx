@@ -6,7 +6,9 @@ import Footer from "../components/Footer";
 
 const GalleryScreen = () => {
   window.scrollTo(0, 0);
+
   let { filter } = useParams();
+
   let title = "Search Results";
   if (filter === "building") {
     title = "Buildings";
@@ -14,6 +16,10 @@ const GalleryScreen = () => {
     title = "Lands";
   } else if (filter === "home") {
     title = "Homes";
+  } else if (filter === "rent") {
+    title = "Rentals";
+  } else if (filter === undefined) {
+    title = "All Listings";
   } else {
     filter = "search";
   }

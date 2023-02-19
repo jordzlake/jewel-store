@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import rentals from "../../data/Rentals";
+import items from "../../data/Items";
 import Card from "../Card";
 import DirectionButton from "../DirectionButton";
 import settings from "./../SlickSettings";
@@ -17,23 +17,25 @@ const Rentals = () => {
             </p>
           </div>
           <Slider {...settings}>
-            {rentals.map((listitem) => (
-              <div key={listitem._id}>
-                <Card
-                  name={listitem.name}
-                  price={listitem.price}
-                  bedrooms={listitem.bedrooms}
-                  bathrooms={listitem.bathrooms}
-                  size={listitem.size}
-                  im={listitem.image}
-                  redir={`/${listitem.name + "_" + listitem._id}`}
-                  type={"home"}
-                  loc={"San Jaun"}
-                />
-              </div>
-            ))}
+            {items
+              .filter((temp) => temp.type === "rent")
+              .map((listitem) => (
+                <div key={listitem._id}>
+                  <Card
+                    name={listitem.name}
+                    price={listitem.price}
+                    bedrooms={listitem.bedrooms}
+                    bathrooms={listitem.bathrooms}
+                    size={listitem.size}
+                    im={listitem.mainImage}
+                    redir={`/item/${listitem._id}`}
+                    type={"rent"}
+                    loc={listitem.city}
+                  />
+                </div>
+              ))}
           </Slider>
-          <DirectionButton path={"/"} />
+          <DirectionButton path={"/items/rent"} />
         </div>
       </div>
     </div>

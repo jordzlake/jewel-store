@@ -13,6 +13,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 1,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "2,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -36,6 +38,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 4,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "3,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -54,6 +58,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Coconut Tree"],
     bedrooms: 2,
     bathrooms: 4,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "5,403",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -77,6 +83,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 1,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "1,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -100,6 +108,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "4,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -107,7 +117,7 @@ const items = [
   {
     _id: "6",
     name: "Town Home",
-    price: "$340,000.00TTD",
+    price: "$3,000.00TTD",
     type: "rent",
     mainImage: "/images/CityEscapeHouses.jpg",
     subImages: ["/images/RedHouse.jpg", "/images/HouseCorner.jpg"],
@@ -118,6 +128,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 1,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "3,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -125,7 +137,7 @@ const items = [
   {
     _id: "7",
     name: "Country Flat",
-    price: "$340,000.00TTD",
+    price: "$2,000.00TTD",
     type: "rent",
     mainImage: "/images/CarHouse.jpg",
     subImages: ["/images/HouseCorner.jpg", "/images/WhiteLowerLeftHouse.jpg"],
@@ -141,6 +153,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 4,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "4,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -148,7 +162,7 @@ const items = [
   {
     _id: "8",
     name: "Suite Home",
-    price: "$780,000.00TTD",
+    price: "$3,000.00TTD",
     type: "rent",
     mainImage: "/images/IntroHouse.jpg",
     subImages: ["/images/HouseCorner.jpg", "/images/WhiteLowerLeftHouse.jpg"],
@@ -159,6 +173,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Coconut Tree"],
     bedrooms: 2,
     bathrooms: 4,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "3,403",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -166,7 +182,7 @@ const items = [
   {
     _id: "9",
     name: "Family Five Story",
-    price: "$230,000.00TTD",
+    price: "$2,800.00TTD",
     type: "rent",
     mainImage: "/images/WhiteLowerLeftHouse.jpg",
     subImages: ["/images/HouseCorner.jpg", "/images/WhiteLowerLeftHouse.jpg"],
@@ -182,6 +198,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 1,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "4,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -189,7 +207,7 @@ const items = [
   {
     _id: "10",
     name: "Bamboo Villas",
-    price: "$750,000.00TTD",
+    price: "$4,000.00TTD",
     type: "rent",
     mainImage: "/images/CityEscapeHouses.jpg",
     subImages: ["/images/HouseCorner.jpg", "/images/WhiteLowerLeftHouse.jpg"],
@@ -205,6 +223,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "1,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -223,6 +243,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 1,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "2,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -246,6 +268,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 4,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "3,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -264,6 +288,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Coconut Tree"],
     bedrooms: 2,
     bathrooms: 4,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "5,403",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -287,6 +313,8 @@ const items = [
     exteriorFeatures: ["Lawn", "Patio"],
     bedrooms: 1,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "1,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -310,6 +338,8 @@ const items = [
     exteriorFeatures: ["Pool", "Patio"],
     bedrooms: 3,
     bathrooms: 2,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "4,203",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -328,6 +358,8 @@ const items = [
     exteriorFeatures: ["Tree"],
     bedrooms: 0,
     bathrooms: 0,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "2",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -345,6 +377,8 @@ const items = [
     exteriorFeatures: ["Tree", "Gate"],
     bedrooms: 0,
     bathrooms: 0,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "3",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
@@ -362,6 +396,27 @@ const items = [
     exteriorFeatures: ["Tree", "Gate"],
     bedrooms: 0,
     bathrooms: 0,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
+    size: "4",
+    mapIframe:
+      "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
+  },
+  {
+    _id: "19",
+    name: "1 Acres Trees",
+    price: "$1,780,000.00TTD",
+    type: "land",
+    mainImage: "/images/Land2.jpg",
+    street: "#23 Raj Ave",
+    city: "St Helena",
+    country: "Trinidad",
+    interiorFeatures: [],
+    exteriorFeatures: ["Tree", "Gate"],
+    bedrooms: 0,
+    bathrooms: 0,
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
     size: "4",
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
