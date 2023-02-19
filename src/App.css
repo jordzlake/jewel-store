@@ -800,11 +800,86 @@ a {
 .sim-title-container {
   display: none;
 }
+.si-request-container {
+  display: none;
+}
+.sim-sticky {
+  display: none;
+}
 @media (max-width: 900px) {
   .container-l,
   .container-r {
     flex: 0 0 100%;
     padding: 0px;
+  }
+  .sim-sticky {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    padding: 10px 20px 20px;
+    color: var(--white);
+    background: var(--orange-grad);
+    bottom: 0;
+    left: 0;
+  }
+
+  .sim-sticky-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sim-sticky-container i {
+    font-size: xx-large;
+  }
+  body,
+  .singleitem-container {
+    overflow: clip;
+  }
+  .sim-request-title {
+    text-align: center;
+    font-size: x-large;
+    color: var(--white);
+  }
+  .sim-request-form {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .form-active {
+    display: flex !important;
+  }
+  .sim-request-form input::-webkit-outer-spin-button,
+  .sim-request-form input::-webkit-inner-spin-button {
+    display: none;
+  }
+  .sim-request-form > * {
+    margin-top: 10px;
+  }
+  .sim-request-form label {
+    color: var(--white);
+  }
+  .sim-request-form textarea {
+    resize: none;
+  }
+  .sim-button {
+    margin-top: 20px;
+    background: var(--white);
+    color: var(--orange);
+    padding: 4px 2px;
+    width: 50%;
+    min-width: fit-content;
+    border: none;
+    transition: all linear 0.1s;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    align-self: center;
+    font-weight: bold;
+  }
+  .si-button:hover {
+    background: var(--orange-grad);
+    border: 1px solid var(--white);
+    color: var(--white);
   }
 }
 
@@ -825,8 +900,8 @@ a {
     padding: 10px 0 5px 0px;
   }
   .sim-title {
-    color: var(--light-yellow);
-    font-size: large;
+    color: var(--white);
+    font-size: x-large;
     margin-bottom: 0px;
   }
   .sim-price {
@@ -835,6 +910,12 @@ a {
     line-height: 50px;
     font-weight: bold;
     margin-bottom: 0px;
+  }
+  .si-address h2 {
+    text-align: center;
+  }
+  .si-address {
+    margin-bottom: 55px !important;
   }
 }
 

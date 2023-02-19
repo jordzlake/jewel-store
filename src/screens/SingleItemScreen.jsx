@@ -9,7 +9,32 @@ import items from "./../data/Items";
 
 const SingleItemScreen = () => {
   const { id } = useParams();
+  const [showMenu, setShowMenu] = useState(false);
   const item = items.filter((temp) => temp._id === id)[0];
+  const handleClick = (e) => {
+    setShowMenu(!showMenu);
+    e.stopPropagation();
+  };
+  const handleCloseMenu = (e) => {
+    if (!e.target.closest(".bannerMenu") && !showMenu) {
+      setShowMenu(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleCloseMenu);
+
+    return () => {
+      document.removeEventListener("click", handleCloseMenu);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("click", handleCloseMenu);
+
+    return () => {
+      document.removeEventListener("click", handleCloseMenu);
+    };
+  }, []);
   window.scrollTo(0, 0);
   return (
     <div>
@@ -32,10 +57,11 @@ const SingleItemScreen = () => {
           <div className="si-content-container">
             <div className="container-l">
               <div className="si-address">
-                <h2 className="si-street">{item.street}</h2>
-                <h2 className="si-city">{item.city}</h2>
-                <h2 className="si-country">{item.country}</h2>
+                <h2 className="si-street">{item.street},</h2>
+                <h2 className="si-city">{item.city},</h2>
+                <h2 className="si-country">{item.country}.</h2>
               </div>
+
               <div className="si-description">
                 <h2 className="si-description-title">Description</h2>
                 <p className="si-description-body">{item.description}</p>
@@ -102,7 +128,7 @@ const SingleItemScreen = () => {
                     <div className="si-map-marker-container">
                       <img
                         src="/images/svgs/JewelPin.svg"
-                        width="3%"
+                        width="5%"
                         alt="located here"
                       />
                     </div>
@@ -132,6 +158,30 @@ const SingleItemScreen = () => {
                   </div>
                 ))}
             </Slider>
+          </div>
+        </div>
+        <div className="sim-sticky">
+          <div className="sim-sticky-container">
+            <i className="fa fa-caret-up"></i>
+            <h2 onClick={handleClick} className="sim-request-title">
+              Submit a Request
+            </h2>
+            <form
+              action=""
+              className={`sim-request-form ${showMenu ? "form-active" : ""}`}
+            >
+              <label htmlFor="firstname">First Name:</label>
+              <input type="text" name="firstname" id="firstname" />
+              <label htmlFor="lastname">Last Name:</label>
+              <input type="text" name="lastname" id="lastname" />
+              <label htmlFor="contact">Contact:</label>
+              <input type="number" name="contact" id="contact" />
+              <label htmlFor="message">Message:</label>
+              <textarea name="message" id="message" rows="4">
+                Hey, I'm interested in this item.
+              </textarea>
+              <button className="sim-button">Submit Request</button>
+            </form>
           </div>
         </div>
       </div>
