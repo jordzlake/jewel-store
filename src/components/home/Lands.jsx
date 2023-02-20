@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import settings from "../SlickSettings";
 
 const Lands = () => {
+  console.log(items.length > settings.slidesToShow);
   return (
     <div className="lands-listings">
       <div className="page-container">
@@ -16,7 +17,14 @@ const Lands = () => {
               Select an item to see more information.
             </p>
           </div>
-          <Slider {...settings}>
+
+          <Slider
+            {...settings}
+            infinite={
+              items.filter((temp) => temp.type === "land").length >
+              settings.slidesToShow
+            }
+          >
             {items
               .filter((temp) => temp.type === "land")
               .map((listitem) => (

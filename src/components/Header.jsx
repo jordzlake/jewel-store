@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const showDropdownRef = useRef(showDropdown);
+
+  useEffect(() => {
+    showDropdownRef.current = showDropdown;
+  }, [showDropdown]);
   const handleClose = (e) => {
-    if (!e.target.closest(".drpdown-list") && !showDropdown) {
+    if (showDropdownRef.current) {
       setShowDropdown(false);
     }
   };

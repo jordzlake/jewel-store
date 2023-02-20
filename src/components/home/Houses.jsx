@@ -16,7 +16,13 @@ const Houses = () => {
               Select an item to see more information.
             </p>
           </div>
-          <Slider {...settings}>
+          <Slider
+            {...settings}
+            infinite={
+              items.filter((temp) => temp.type === "home").length >
+              settings.slidesToShow
+            }
+          >
             {items
               .filter((temp) => temp.type === "home")
               .map((listitem) => (

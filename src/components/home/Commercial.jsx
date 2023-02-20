@@ -31,7 +31,13 @@ const Commercial = () => {
               </div>
             ))}
             </div>*/}
-          <Slider {...settings}>
+          <Slider
+            {...settings}
+            infinite={
+              items.filter((temp) => temp.type === "building").length >
+              settings.slidesToShow
+            }
+          >
             {items
               .filter((temp) => temp.type === "building")
               .map((listitem) => (

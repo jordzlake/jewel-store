@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 import Slider from "react-slick";
+import fadesettings from "../components/SlickFadeSingleSettings";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -10,16 +11,28 @@ import items from "./../data/Items";
 const SingleItemScreen = () => {
   const { id } = useParams();
   const [showMenu, setShowMenu] = useState(false);
+
+  const showMenuRef = useRef(showMenu);
+
+  useEffect(() => {
+    showMenuRef.current = showMenu;
+  }, [showMenu]);
+
   const item = items.filter((temp) => temp._id === id)[0];
-  const handleClick = (e) => {
-    setShowMenu(!showMenu);
-    e.stopPropagation();
-  };
+
   const handleCloseMenu = (e) => {
-    if (!e.target.closest(".bannerMenu") && !showMenu) {
+    if (e.target.nodeName === "LABEL") {
+      e.preventDefault();
+    }
+    e.stopPropagation();
+    if (!e.target.closest(".sim-sticky") && showMenuRef.current) {
       setShowMenu(false);
     }
   };
+  const handleClick = (e) => {
+    e.stopPropagation();
+    setShowMenu(!showMenu);
+  };
   useEffect(() => {
     document.addEventListener("click", handleCloseMenu);
 
@@ -28,13 +41,6 @@ const SingleItemScreen = () => {
     };
   }, []);
 
-  useEffect(() => {
-    document.addEventListener("click", handleCloseMenu);
-
-    return () => {
-      document.removeEventListener("click", handleCloseMenu);
-    };
-  }, []);
   window.scrollTo(0, 0);
   return (
     <div>
@@ -47,7 +53,20 @@ const SingleItemScreen = () => {
               <p className="si-price">{item.price}</p>
             </div>
           </div>
-          <img className="si-image" src={item.mainImage} alt="mainImage" />
+          <div className="j-carousel">
+            <Slider {...fadesettings}>
+              <div>
+                <img src={item.mainImage} alt="mainImage" />
+              </div>
+              {item.subImages.length !== 0
+                ? item.subImages.map((im, i) => (
+                    <div key={i}>
+                      <img src={im} alt="" />
+                    </div>
+                  ))
+                : ""}
+            </Slider>
+          </div>
         </div>
         <div className="sim-title-container">
           <h1 className="sim-title">{item.name}</h1>
@@ -66,18 +85,20 @@ const SingleItemScreen = () => {
                 <h2 className="si-description-title">Description</h2>
                 <p className="si-description-body">{item.description}</p>
               </div>
-              <div className="si-features">
-                <div className="si-features-heading-container">
-                  <h2 className="si-features-heading">Internal Features</h2>
+              {item.type !== "land" && (
+                <div className="si-features">
+                  <div className="si-features-heading-container">
+                    <h2 className="si-features-heading">Internal Features</h2>
+                  </div>
+                  <div className="si-features-body-container">
+                    <ul>
+                      {item.interiorFeatures.map((feat, i) => (
+                        <li key={i}>{feat}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div className="si-features-body-container">
-                  <ul>
-                    {item.interiorFeatures.map((feat, i) => (
-                      <li key={i}>{feat}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              )}
               <div className="si-features">
                 <div className="si-features-heading-container">
                   <h2 className="si-features-heading">External Features</h2>
@@ -106,9 +127,12 @@ const SingleItemScreen = () => {
                   <label htmlFor="contact">Contact:</label>
                   <input type="number" name="contact" id="contact" />
                   <label htmlFor="message">Message:</label>
-                  <textarea name="message" id="message" rows="4">
-                    Hey, I'm interested in this item.
-                  </textarea>
+                  <textarea
+                    defaultValue={`Hey, I'm interested in the ${item.type} item: ${item.name}.`}
+                    name="message"
+                    id="message"
+                    rows="4"
+                  ></textarea>
                   <button className="si-button">Submit Request</button>
                 </form>
               </div>
@@ -139,7 +163,13 @@ const SingleItemScreen = () => {
           </div>
           <div className="more-items-container">
             <h2 className="more-items-title">More items like this:</h2>
-            <Slider {...settings}>
+            <Slider
+              {...settings}
+              infinite={
+                items.filter((temp) => temp.type === item.type).length >
+                settings.slidesToShow
+              }
+            >
               {items
                 .filter((temp) => temp.type === item.type)
                 .map((listitem) => (
@@ -162,10 +192,13 @@ const SingleItemScreen = () => {
         </div>
         <div className="sim-sticky">
           <div className="sim-sticky-container">
-            <i className="fa fa-caret-up"></i>
-            <h2 onClick={handleClick} className="sim-request-title">
-              Submit a Request
-            </h2>
+            <div onClick={handleClick} className="sim-sticky-heading-container">
+              <i
+                className={`fa fa-caret-up ${showMenu ? "button-active" : ""}`}
+              ></i>
+              <h2 className="sim-request-title">Submit a Request</h2>
+            </div>
+
             <form
               action=""
               className={`sim-request-form ${showMenu ? "form-active" : ""}`}
@@ -177,9 +210,12 @@ const SingleItemScreen = () => {
               <label htmlFor="contact">Contact:</label>
               <input type="number" name="contact" id="contact" />
               <label htmlFor="message">Message:</label>
-              <textarea name="message" id="message" rows="4">
-                Hey, I'm interested in this item.
-              </textarea>
+              <textarea
+                defaultValue={`Hey, I'm interested in the ${item.type} item: ${item.name}.`}
+                name="message"
+                id="message"
+                rows="4"
+              ></textarea>
               <button className="sim-button">Submit Request</button>
             </form>
           </div>

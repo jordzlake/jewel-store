@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import fadesettings from "../SlickFadeSettings";
@@ -10,9 +10,14 @@ const Banner = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const [currentType, setCurrentType] = useState("");
+  const showMenuRef = useRef(showMenu);
+
+  useEffect(() => {
+    showMenuRef.current = showMenu;
+  }, [showMenu]);
 
   const handleCloseMenu = (e) => {
-    if (!e.target.closest(".bannerMenu") && !showMenu) {
+    if (!e.target.closest(".bannerMenu") && showMenuRef.current) {
       setShowMenu(false);
     }
   };
@@ -43,14 +48,6 @@ const Banner = () => {
       );
     }
   };
-
-  useEffect(() => {
-    document.addEventListener("click", handleCloseMenu);
-
-    return () => {
-      document.removeEventListener("click", handleCloseMenu);
-    };
-  }, []);
 
   useEffect(() => {
     document.addEventListener("click", handleCloseMenu);

@@ -370,6 +370,7 @@ const items = [
     price: "$1,340,000.00TTD",
     type: "land",
     mainImage: "/images/Land3.jpg",
+    subImages: ["/images/Land2.jpg"],
     street: "#52 Sammy St",
     city: "San Juan",
     country: "Trinidad",
@@ -388,7 +389,8 @@ const items = [
     name: "4 Acres Trees",
     price: "$1,780,000.00TTD",
     type: "land",
-    mainImage: "/images/Land3.jpg",
+    mainImage: "/images/Land1.jpg",
+    subImages: ["/images/Land3.jpg"],
     street: "#23 Raj Ave",
     city: "St Helena",
     country: "Trinidad",
@@ -402,25 +404,25 @@ const items = [
     mapIframe:
       "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
   },
-  {
-    _id: "19",
-    name: "1 Acres Trees",
-    price: "$1,780,000.00TTD",
-    type: "land",
-    mainImage: "/images/Land2.jpg",
-    street: "#23 Raj Ave",
-    city: "St Helena",
-    country: "Trinidad",
-    interiorFeatures: [],
-    exteriorFeatures: ["Tree", "Gate"],
-    bedrooms: 0,
-    bathrooms: 0,
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
-    size: "4",
-    mapIframe:
-      "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
-  },
+  // {
+  //   _id: "19",
+  //   name: "1 Acres Trees",
+  //   price: "$1,780,000.00TTD",
+  //   type: "land",
+  //   mainImage: "/images/Land2.jpg",
+  //   street: "#23 Raj Ave",
+  //   city: "St Helena",
+  //   country: "Trinidad",
+  //   interiorFeatures: [],
+  //   exteriorFeatures: ["Tree", "Gate"],
+  //   bedrooms: 0,
+  //   bathrooms: 0,
+  //   description:
+  //     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, hic modi! Sed alias sit, blanditiis voluptatum magni minus facilis voluptate modi ea, repudiandae consequatur et similique. In aperiam exercitationem hic, sint voluptates dolorum excepturi veniam eveniet aut atque enim porro, reiciendis minima. Unde, inventore sunt minus sequi repellendus commodi quos provident iusto reprehenderit impedit molestias voluptas ducimus consequuntur pariatur eligendi earum quis explicabo deserunt velit quae. Reiciendis tempore amet ab impedit facere excepturi, eius esse in doloremque ut vel error! Perferendis ratione optio, corrupti repudiandae voluptatibus voluptatum cum inventore molestiae rerum unde neque id distinctio quidem dolores sit consequuntur obcaecati quam autem voluptate vel dicta dolore non laboriosam debitis. Iste voluptate commodi alias officia neque asperiores rerum inventore natus, totam unde sunt vel fuga placeat sint, aut odit. Eius mollitia molestias necessitatibus aliquid modi culpa, accusantium at, magnam rem quaerat esse distinctio sed nulla dolor tenetur dolores explicabo labore temporibus tempora ullam dolorem. Adipisci ratione dolores distinctio, repellat aut libero rerum, voluptatem ipsa cumque architecto laudantium sapiente ipsum quaerat eaque assumenda maxime quas corrupti cupiditate nihil rem consequuntur aspernatur? Dignissimos quibusdam sint voluptate dolorum sapiente minus? In nulla sint commodi quos ut dolorum. Excepturi harum sunt possimus impedit numquam? Dolore?",
+  //   size: "4",
+  //   mapIframe:
+  //     "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.06611138003527!2d-61.45113415947693!3d10.652619222296702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stt!4v1676611759176!5m2!1sen!2stt",
+  // },
 ];
 
 export default items;
