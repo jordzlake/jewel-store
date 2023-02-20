@@ -625,7 +625,7 @@ a {
 .si-image-container .slick-prev,
 .si-image-container .slick-next {
   height: 20px;
-  z-index: 4;
+  z-index: 3;
 }
 .si-image-container .slick-prev {
   left: 3px;
@@ -854,6 +854,7 @@ a {
     background: var(--orange-grad);
     bottom: 0;
     left: 0;
+    z-index: 4;
   }
 
   .sim-sticky-container {
