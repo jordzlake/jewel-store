@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import items from "../data/Items";
 import Card from "./Card";
 
-const Gallery = ({ filter }) => {
+const Gallery = ({ filter, items }) => {
   const [allItems, setAllItems] = useState([]);
   const [displayItems, setDisplayItems] = useState([]);
   const location = useLocation();
@@ -12,7 +11,7 @@ const Gallery = ({ filter }) => {
   useEffect(() => {
     const data = items;
     setAllItems(data);
-    if (filter) {
+    if (filter && allItems.length !== 0) {
       if (filter != "search") {
         const temp = allItems.filter((item) => item.type === `${filter}`);
         setDisplayItems(temp);

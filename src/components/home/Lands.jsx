@@ -1,12 +1,10 @@
 import React from "react";
-import items from "../../data/Items";
 import Card from "../Card";
 import DirectionButton from "./../DirectionButton";
 import Slider from "react-slick";
 import settings from "../SlickSettings";
 
-const Lands = () => {
-  console.log(items.length > settings.slidesToShow);
+const Lands = ({ items, loading }) => {
   return (
     <div className="lands-listings">
       <div className="page-container">
@@ -18,31 +16,35 @@ const Lands = () => {
             </p>
           </div>
 
-          <Slider
-            {...settings}
-            infinite={
-              items.filter((temp) => temp.type === "land").length >
-              settings.slidesToShow
-            }
-          >
-            {items
-              .filter((temp) => temp.type === "land")
-              .map((listitem) => (
-                <div key={listitem._id}>
-                  <Card
-                    name={listitem.name}
-                    price={listitem.price}
-                    bedrooms={listitem.bedrooms}
-                    bathrooms={listitem.bathrooms}
-                    size={listitem.size}
-                    im={listitem.mainImage}
-                    redir={`/item/${listitem._id}`}
-                    type={"land"}
-                    loc={listitem.city}
-                  />
-                </div>
-              ))}
-          </Slider>
+          {loading === false ? (
+            <Slider
+              {...settings}
+              infinite={
+                items.filter((temp) => temp.type === "land").length >
+                settings.slidesToShow
+              }
+            >
+              {items
+                .filter((temp) => temp.type === "land")
+                .map((listitem) => (
+                  <div key={listitem._id}>
+                    <Card
+                      name={listitem.name}
+                      price={listitem.price}
+                      bedrooms={listitem.bedrooms}
+                      bathrooms={listitem.bathrooms}
+                      size={listitem.size}
+                      im={listitem.mainImage}
+                      redir={`/item/${listitem._id}`}
+                      type={"land"}
+                      loc={listitem.city}
+                    />
+                  </div>
+                ))}
+            </Slider>
+          ) : (
+            ""
+          )}
           <DirectionButton path={"/items/land"} />
         </div>
       </div>
