@@ -65,7 +65,7 @@ const SingleItemScreen = () => {
             exteriorFeatures: [],
           });
     }
-  }, [items]);
+  }, [items, id]);
 
   useEffect(() => {
     dispatch(listItem());
@@ -255,31 +255,38 @@ const SingleItemScreen = () => {
             </div>
             <div className="more-items-container">
               <h2 className="more-items-title">More items like this:</h2>
-              <Slider
-                {...settings}
-                infinite={
-                  items.filter((temp) => temp.type === item.type).length >
-                  settings.slidesToShow
-                }
-              >
-                {items
-                  .filter((temp) => temp.type === item.type)
-                  .map((listitem) => (
-                    <div key={listitem._id}>
-                      <Card
-                        name={listitem.name}
-                        price={listitem.price}
-                        bedrooms={listitem.bedrooms}
-                        bathrooms={listitem.bathrooms}
-                        size={listitem.size}
-                        im={listitem.mainImage}
-                        redir={`/item/${listitem._id}`}
-                        type={listitem.type}
-                        loc={listitem.city}
-                      />
-                    </div>
-                  ))}
-              </Slider>
+
+              {item.type ? (
+                <Slider
+                  {...settings}
+                  infinite={
+                    items.filter((temp) => temp.type === item.type).length > 3
+                      ? items.filter((temp) => temp.type === item.type).length >
+                        settings.slidesToShow
+                      : false
+                  }
+                >
+                  {items
+                    .filter((temp) => temp.type === item.type)
+                    .map((listitem) => (
+                      <div key={listitem._id}>
+                        <Card
+                          name={listitem.name}
+                          price={listitem.price}
+                          bedrooms={listitem.bedrooms}
+                          bathrooms={listitem.bathrooms}
+                          size={listitem.size}
+                          im={listitem.mainImage}
+                          redir={`/item/${listitem._id}`}
+                          type={listitem.type}
+                          loc={listitem.city}
+                        />
+                      </div>
+                    ))}
+                </Slider>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="sim-sticky">
