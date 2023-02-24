@@ -3,6 +3,7 @@ import Card from "../Card";
 import DirectionButton from "./../DirectionButton";
 import Slider from "react-slick";
 import settings from "../SlickSettings";
+import LoadingSpinner from "./../LoadingSpinner";
 
 const Lands = ({ items, loading }) => {
   return (
@@ -43,7 +44,7 @@ const Lands = ({ items, loading }) => {
                 ))}
             </Slider>
           ) : (
-            ""
+            <LoadingSpinner />
           )}
           <DirectionButton path={"/items/land"} />
         </div>

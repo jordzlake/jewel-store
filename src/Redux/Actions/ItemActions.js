@@ -10,7 +10,7 @@ import axios from "axios";
 export const listItem = () => async (dispatch) => {
   try {
     dispatch({ type: ITEM_LIST_REQUEST });
-    const data = await axios.get(`${URL}/api/items`);
+    const { data } = await axios.get(`${URL}/api/items`);
     dispatch({
       type: ITEM_LIST_SUCCESS,
       payload: data,

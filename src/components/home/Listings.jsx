@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import Card from "../Card";
 import settings from "../SlickSettings";
 import DirectionButton from "./../DirectionButton";
+import LoadingSpinner from "../LoadingSpinner";
 
 import { useSelector, useDispatch } from "react-redux";
 import { listItem } from "../../Redux/Actions/ItemActions";
@@ -63,7 +64,7 @@ const Listings = ({ items, loading }) => {
                   ))}
             </Slider>
           ) : (
-            ""
+            <LoadingSpinner />
           )}
           <DirectionButton path={"/items/"} />
         </div>

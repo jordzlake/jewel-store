@@ -14,8 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const itemList = useSelector((state) => state.itemList);
-  const { loading, error, items: temp } = itemList;
-  const items = temp.data;
+  const { loading, error, items } = itemList;
   useEffect(() => {
     dispatch(listItem());
   }, []);
@@ -26,11 +25,19 @@ const HomeScreen = () => {
       <div>
         <Header />
         <Banner />
-        <Listings items={items} loading={loading} />
-        <Rentals items={items} loading={loading} />
-        <Lands items={items} loading={loading} />
-        <Houses items={items} loading={loading} />
-        <Commercial items={items} loading={loading} />
+        {error ? (
+          <div className="ctfix">
+            <p className="jewel-error">Error: {error}</p>
+          </div>
+        ) : (
+          <React.Fragment>
+            <Listings items={items} loading={loading} />
+            <Rentals items={items} loading={loading} />
+            <Lands items={items} loading={loading} />
+            <Houses items={items} loading={loading} />
+            <Commercial items={items} loading={loading} />
+          </React.Fragment>
+        )}
         <Footer />
       </div>
     </div>

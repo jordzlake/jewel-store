@@ -10,6 +10,7 @@ import { listItem } from "../Redux/Actions/ItemActions";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { URL } from "../Url";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SingleItemScreen = () => {
   //Feedback
@@ -18,6 +19,11 @@ const SingleItemScreen = () => {
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
   const [alert, setAlert] = useState("");
+  const [item, setItem] = useState({
+    subImages: [],
+    interiorFeatures: [],
+    exteriorFeatures: [],
+  });
 
   const handleSubmit = (e) => {
     console.log(message);
@@ -47,19 +53,23 @@ const SingleItemScreen = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const itemList = useSelector((state) => state.itemList);
-  const { loading, error, items: temp } = itemList;
-  const items = temp.data;
-  let item = {};
+  const { loading, error, items } = itemList;
 
-  if (loading === false) {
-    if (items.length > 0) {
-      item = items.filter((temp) => temp._id === id)[0];
+  useEffect(() => {
+    if (items) {
+      items.length > 0
+        ? setItem(items.find((temp) => temp._id === id))
+        : setItem({
+            subImages: [],
+            interiorFeatures: [],
+            exteriorFeatures: [],
+          });
     }
-  }
+  }, [items]);
 
   useEffect(() => {
     dispatch(listItem());
-  }, []);
+  }, [dispatch]);
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -94,7 +104,15 @@ const SingleItemScreen = () => {
   return (
     <div>
       <Header />
-      {loading === false ? (
+      {loading ? (
+        <div>
+          <LoadingSpinner />
+        </div>
+      ) : error ? (
+        <div className="ctfix">
+          <p className="jewel-error">Error: {error}</p>
+        </div>
+      ) : (
         <div className="ctfix singleitem-container">
           <div className="si-image-container">
             <div className="si-floating page-container">
@@ -324,9 +342,14 @@ const SingleItemScreen = () => {
             </div>
           </div>
         </div>
-      ) : (
-        ""
       )}
+      {/*loading ? (
+        ""
+      ) : error ? (
+        ""
+      ) : (
+        <p style={{ paddingTop: 1000 }}>itemID: {item._id}</p>
+      )*/}
       <Footer />
     </div>
   );

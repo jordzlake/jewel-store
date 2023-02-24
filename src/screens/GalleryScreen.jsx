@@ -5,13 +5,13 @@ import { useParams } from "react-router";
 import Footer from "../components/Footer";
 import { listItem } from "../Redux/Actions/ItemActions";
 import { useSelector, useDispatch } from "react-redux";
+import LoadingSpinner from "./../components/LoadingSpinner";
 
 const GalleryScreen = () => {
   window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const itemList = useSelector((state) => state.itemList);
-  const { loading, error, items: temp } = itemList;
-  const items = temp.data;
+  const { loading, error, items } = itemList;
   useEffect(() => {
     dispatch(listItem());
   }, []);
@@ -39,7 +39,15 @@ const GalleryScreen = () => {
       <div className="ctfix page-container">
         <div className="ctspread">
           <h1 className="jewel-orange">{title}</h1>
-          {loading === false ? <Gallery items={items} filter={filter} /> : ""}
+          {loading ? (
+            <LoadingSpinner />
+          ) : error ? (
+            <div className="ctfix">
+              <p className="jewel-error">Error: {error}</p>
+            </div>
+          ) : (
+            <Gallery items={items} filter={filter} />
+          )}
         </div>
       </div>
       <Footer />
