@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const RedirectToHttps = () => {
-  useEffect(() => {
+  /* useEffect(() => {
     const { protocol, hostname } = window.location;
     if (
       protocol === "http:" &&
@@ -11,7 +11,7 @@ const RedirectToHttps = () => {
       window.location.href = `https://${hostname}${window.location.pathname}${window.location.search}`;
     }
   }, []);
-
+*/
   return null;
 };
 
