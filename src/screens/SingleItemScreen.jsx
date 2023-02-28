@@ -19,6 +19,7 @@ const SingleItemScreen = () => {
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
   const [alert, setAlert] = useState("");
+  const [defMessage, setDefMessage] = useState("");
   const [item, setItem] = useState({
     subImages: [],
     interiorFeatures: [],
@@ -64,6 +65,9 @@ const SingleItemScreen = () => {
             interiorFeatures: [],
             exteriorFeatures: [],
           });
+      setDefMessage(
+        `Hello, I'm interested in the ${item.type} item, ${item.name}, at ${item.street}, ${item.city}, ${item.country}.`
+      );
     }
   }, [items, id]);
 
@@ -337,7 +341,7 @@ const SingleItemScreen = () => {
                 <label htmlFor="message">Message:</label>
                 <textarea
                   required
-                  defaultValue={`Hello, I'm interested in the ${item.type} item, ${item.name}, at ${item.street}, ${item.city}, ${item.country}.`}
+                  defaultValue={defMessage}
                   onChange={(e) => setMessage(e.target.value)}
                   name="message"
                   id="message"
