@@ -24,10 +24,14 @@ const SingleItemScreen = () => {
     subImages: [],
     interiorFeatures: [],
     exteriorFeatures: [],
+    name: "",
+    type: "",
+    city: "",
+    street: "",
+    country: "",
   });
 
   const handleSubmit = (e) => {
-    console.log(message);
     const messageToSend = message === "" ? e.target.message.value : message;
     e.preventDefault();
     axios
@@ -58,22 +62,33 @@ const SingleItemScreen = () => {
 
   useEffect(() => {
     if (items) {
-      items.length > 0
-        ? setItem(items.find((temp) => temp._id === id))
-        : setItem({
-            subImages: [],
-            interiorFeatures: [],
-            exteriorFeatures: [],
-          });
-      setDefMessage(
-        `Hello, I'm interested in the ${item.type} item, ${item.name}, at ${item.street}, ${item.city}, ${item.country}.`
-      );
+      if (items.length > 0) {
+        setItem(items.find((temp) => temp._id === id));
+      } else {
+        setItem({
+          subImages: [],
+          interiorFeatures: [],
+          exteriorFeatures: [],
+          name: "",
+          type: "",
+          city: "",
+          street: "",
+          country: "",
+        });
+      }
     }
   }, [items, id]);
 
   useEffect(() => {
     dispatch(listItem());
   }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMessage(
+      `Hello, I'm interested in the ${item.type} item, ${item.name}, at ${item.street}, ${item.city}, ${item.country}.`
+    );
+  }, [item.name]);
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -104,7 +119,6 @@ const SingleItemScreen = () => {
     };
   }, []);
 
-  window.scrollTo(0, 0);
   return (
     <div>
       <Header />
@@ -220,14 +234,16 @@ const SingleItemScreen = () => {
                       id="contact"
                     />
                     <label htmlFor="message">Message:</label>
+
                     <textarea
                       required
-                      defaultValue={`Hello, I'm interested in the ${item.type} item, ${item.name}, at ${item.street}, ${item.city}, ${item.country}.`}
+                      value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       name="message"
                       id="message"
                       rows="4"
                     ></textarea>
+
                     <p>{alert}</p>
                     <button className="si-button">Submit Request</button>
                   </form>
@@ -264,14 +280,19 @@ const SingleItemScreen = () => {
                 <Slider
                   {...settings}
                   infinite={
-                    items.filter((temp) => temp.type === item.type).length > 3
-                      ? items.filter((temp) => temp.type === item.type).length >
+                    items
+                      .filter((temp) => temp.type === item.type)
+                      .filter((temp) => temp._id !== item._id).length > 3
+                      ? items
+                          .filter((temp) => temp.type === item.type)
+                          .filter((temp) => temp._id !== item._id).length >
                         settings.slidesToShow
                       : false
                   }
                 >
                   {items
                     .filter((temp) => temp.type === item.type)
+                    .filter((temp) => temp._id !== item._id)
                     .map((listitem) => (
                       <div key={listitem._id}>
                         <Card
@@ -306,7 +327,6 @@ const SingleItemScreen = () => {
                 ></i>
                 <h2 className="sim-request-title">Submit a Request</h2>
               </div>
-
               <form
                 onSubmit={handleSubmit}
                 className={`sim-request-form ${showMenu ? "form-active" : ""}`}
@@ -339,9 +359,10 @@ const SingleItemScreen = () => {
                   id="contact"
                 />
                 <label htmlFor="message">Message:</label>
+
                 <textarea
                   required
-                  defaultValue={defMessage}
+                  value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   name="message"
                   id="message"
@@ -354,13 +375,6 @@ const SingleItemScreen = () => {
           </div>
         </div>
       )}
-      {/*loading ? (
-        ""
-      ) : error ? (
-        ""
-      ) : (
-        <p style={{ paddingTop: 1000 }}>itemID: {item._id}</p>
-      )*/}
       <Footer />
     </div>
   );
