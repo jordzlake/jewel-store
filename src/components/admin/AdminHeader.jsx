@@ -65,7 +65,7 @@ const AdminHeader = () => {
               <ul className="jewel-nav-list">
                 <li>
                   <a
-                    href="/"
+                    href="#"
                     onClick={logoutHandler}
                     className="jewel-nav-link"
                   >
@@ -91,7 +91,7 @@ const AdminHeader = () => {
       <div className="drpdown-relative">
         <div className={`drpdown-list ${showDropdown ? "show" : ""}`}>
           <li>
-            <a href="/" onClick={logoutHandler} className="jewel-nav-link">
+            <a href="#" onClick={logoutHandler} className="jewel-nav-link">
               Logout
             </a>
           </li>
