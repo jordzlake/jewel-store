@@ -396,7 +396,7 @@ a {
 }
 /*New Listings*/
 .new-listings {
-  padding: 150px 0 240px;
+  padding: 80px 0 100px;
 }
 
 .new-listings .card-info-container {
@@ -406,7 +406,7 @@ a {
 
 /*Rental Listings*/
 .rental-listings {
-  padding: 150px 0 240px;
+  padding: 80px 0 100px;
   background-color: var(--lighter-yellow);
 }
 
@@ -417,7 +417,7 @@ a {
 
 /*Lands Listings*/
 .lands-listings {
-  padding: 150px 0 240px;
+  padding: 80px 0 100px;
   background-color: var(--lighter-orange);
 }
 
@@ -427,7 +427,7 @@ a {
 }
 /*Houses Listings*/
 .houses-listings {
-  padding: 150px 0 240px;
+  padding: 80px 0 180px;
   background-color: var(--light-red);
 }
 
@@ -460,7 +460,7 @@ a {
 
 /*CommercialListings*/
 .commercial-listings {
-  padding: 150px 0 240px;
+  padding: 80px 0 100px;
   background-color: var(--dark-text);
 }
 
