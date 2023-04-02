@@ -9,12 +9,12 @@ import SingleItemScreen from "./screens/SingleItemScreen";
 import MissionScreen from "./screens/MissionScreen";
 import AdminLogin from "./screens/admin/adminLoginScreen";
 import AdminHomeScreen from "./screens/admin/adminHome";
-import Toast from "./components/Toast";
+import PrivateRoute from "./PrivateRoute";
+import AdminItemsScreen from "./screens/admin/adminItemsScreen";
 
 function App() {
   return (
     <React.Fragment>
-      <Toast />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/contact" element={<ContactScreen />} />
@@ -22,7 +22,21 @@ function App() {
         <Route path="/item/:id" element={<SingleItemScreen />} />
         <Route path="/mission" element={<MissionScreen />} />
         {/* Portal Routes */}
-        <Route path="/admin/" element={<AdminHomeScreen />} />
+        <Route path="/admin/" element={<PrivateRoute />}>
+          <Route path="/admin/" element={<AdminHomeScreen />} />
+        </Route>
+        <Route path="/admin/items" element={<PrivateRoute />}>
+          <Route path="/admin/items" element={<AdminItemsScreen />} />
+        </Route>
+        <Route path="/admin/additem" element={<PrivateRoute />}>
+          <Route path="/admin/additem" element={<AdminHomeScreen />} />
+        </Route>
+        <Route path="/admin/catagories" element={<PrivateRoute />}>
+          <Route path="/admin/catagories" element={<AdminHomeScreen />} />
+        </Route>
+        <Route path="/admin/messages" element={<PrivateRoute />}>
+          <Route path="/admin/messages" element={<AdminHomeScreen />} />
+        </Route>
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </React.Fragment>

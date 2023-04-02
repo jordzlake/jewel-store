@@ -31,7 +31,7 @@ export const login = (username, password) => async (dispatch) => {
     );
 
     if (!data.isAdmin === true) {
-      toast.error("You are not Admin", ToastObjects);
+      toast.error("You are not an Admin", ToastObjects);
       dispatch({
         type: USER_LOGIN_FAIL,
       });
@@ -46,6 +46,7 @@ export const login = (username, password) => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
+    toast.error(message, ToastObjects);
     if (message === "Not authorized, token failed") {
       dispatch(logout());
     }

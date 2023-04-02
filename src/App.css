@@ -1183,7 +1183,6 @@ a {
 }
 .jewel-transparent:hover {
   background-color: var(--orange);
-  color: var(--darker-text);
   border-color: transparent;
   text-shadow: none;
   font-weight: bold;
@@ -1209,7 +1208,13 @@ a {
 }
 .jewel-transparent-alt:hover {
   background-color: var(--orange);
-  color: var(--darker-text);
+  border-color: transparent;
+  text-shadow: none;
+  font-weight: bold;
+  color: var(--white);
+}
+.jewel-admin-btn {
+  background-color: var(--orange);
   border-color: transparent;
   text-shadow: none;
   font-weight: bold;
@@ -1259,4 +1264,212 @@ a {
 }
 .jewel-red {
   color: var(--red);
+}
+
+/* Main Admin Screen*/
+.login-container {
+  height: 100vh;
+  padding-top: 72px;
+}
+/* Sidebar */
+.navbar-aside {
+  max-width: 260px;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.075);
+  z-index: 3;
+  border-right: 1px solid rgba(108, 117, 125, 0.25);
+  transition: left 0.3s ease-in-out;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.navbar-aside::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.navbar-aside {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.navbar-aside .aside-top {
+  padding: 1rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-aside.show {
+  left: 0;
+}
+
+.navbar-aside.hide {
+  left: -300px;
+}
+.menu-aside {
+  list-style: none;
+  margin: 0.5rem;
+  padding: 0;
+}
+.menu-aside a {
+  display: block;
+  text-decoration: none;
+}
+
+.menu-aside .menu-item {
+  margin-bottom: 5px;
+}
+.menu-aside .menu-item .icon {
+  color: #adb5bd;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.menu-aside .active .icon {
+  color: var(--orange);
+}
+.menu-aside .active {
+  background-color: #ebf0fd;
+}
+.menu-aside .menu-link {
+  padding: 10px;
+  color: #29335d;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-aside .menu-link .text {
+  vertical-align: middle;
+}
+.menu-aside .menu-link:hover {
+  transition: 0.2s linear;
+  background-color: #e9ecef;
+}
+.menu-aside .submenu {
+  margin-left: 44px;
+  display: none;
+}
+.menu-aside .submenu a {
+  color: #6c757d;
+  padding: 5px;
+}
+.menu-aside .submenu a:hover {
+  color: #000;
+}
+.menu-aside .menu-item.active .submenu {
+  display: block;
+}
+.menu-aside .menu-item.has-submenu > .menu-link:after {
+  display: block;
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin-top: 0.6em;
+  content: "";
+  border-top: 5px solid #adb5bd;
+  border-right: 5px solid transparent;
+  border-bottom: 0;
+  border-left: 5px solid transparent;
+}
+.sidebar-container {
+  margin-top: 80px;
+}
+.mobile-block {
+  display: none;
+}
+
+.btn-aside-show {
+  display: none;
+  position: fixed;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 40px;
+  z-index: 2;
+}
+.btn-aside-show:hover {
+  color: white;
+}
+.aside-show-icon {
+  padding: 2px 13px 2px 0;
+  color: white;
+}
+.aside-btn-menu-text {
+  margin: 0;
+}
+.btn-aside-hide {
+  display: none;
+}
+/* Interface Split */
+.sidebar-out-container {
+  width: 260px;
+  flex-shrink: 0;
+}
+.interface-container {
+  padding-top: 61px;
+  display: flex;
+  flex-direction: row;
+}
+.main-display {
+  flex-grow: 1;
+}
+/*Admin Small devices (tablets, 768px and down)*/
+@media (max-width: 500px) {
+  .btn-aside-show {
+    display: flex;
+  }
+  .btn-aside-hide {
+    display: flex;
+  }
+  .main-display {
+    width: 100vw;
+    padding-top: 80px;
+  }
+  .interface-container {
+    flex-direction: column;
+  }
+  .admin-header {
+    text-align: center;
+  }
+}
+@media (min-width: 500px) {
+  .navbar-aside.hide {
+    left: 0px;
+  }
+}
+
+/* Admin Items */
+.admin-main-container {
+  margin: 30px 30px;
+}
+.admin-header {
+  margin: 0px 0 20px;
+}
+.admin-main-container .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+.admin-items-searchbar {
+  margin: 20px 0;
+  text-align: center;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-items-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }

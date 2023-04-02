@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../Redux/Actions/UserActions";
 
@@ -8,10 +8,10 @@ const AdminHeader = () => {
   const showDropdownRef = useRef(showDropdown);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const logoutHandler = () => {
-    dispatch(logout());
-    navigate("/admin/login");
-  };
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { error, loading, userInfo } = userLogin;
+
   useEffect(() => {
     showDropdownRef.current = showDropdown;
   }, [showDropdown]);
@@ -23,6 +23,12 @@ const AdminHeader = () => {
   const handleClick = (e) => {
     setShowDropdown(!showDropdown);
     e.stopPropagation();
+  };
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    navigate("/admin/login");
   };
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const AdminHeader = () => {
         <div className="row justify-content-between">
           <div className="col-12 col-md-4 colx d-flex justify-content-between align-items-center">
             <div className="jewel-logo-container d-flex justify-content-center">
-              <Link to={"/"} className="">
+              <Link to={"/admin"} className="">
                 <img
                   className="jewel-logo"
                   src="/images/JewelLogo.jpg"
@@ -46,32 +52,36 @@ const AdminHeader = () => {
                 />
               </Link>
             </div>
-            <div className=" jewel-nav-button">
-              <button
-                type="button"
-                className={`rounded dropdown-icon ${
-                  showDropdown ? "flip" : ""
-                }`}
-                onClick={handleClick}
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fa fa-bars"></i>
-              </button>
-            </div>
+            {userInfo && (
+              <div className=" jewel-nav-button">
+                <button
+                  type="button"
+                  className={`rounded dropdown-icon ${
+                    showDropdown ? "flip" : ""
+                  }`}
+                  onClick={handleClick}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i className="fa fa-bars"></i>
+                </button>
+              </div>
+            )}
           </div>
           <div className="col-12 col-md-8 colx align-items-center jewel-nav-list-container">
             <nav>
               <ul className="jewel-nav-list">
-                <li>
-                  <a
-                    href="#"
-                    onClick={logoutHandler}
-                    className="jewel-nav-link"
-                  >
-                    Logout
-                  </a>
-                </li>
+                {userInfo && (
+                  <li>
+                    <a
+                      href="#"
+                      onClick={logoutHandler}
+                      className="jewel-nav-link"
+                    >
+                      Logout
+                    </a>
+                  </li>
+                )}
               </ul>
             </nav>
           </div>
@@ -90,11 +100,13 @@ const AdminHeader = () => {
       </div>
       <div className="drpdown-relative">
         <div className={`drpdown-list ${showDropdown ? "show" : ""}`}>
-          <li>
-            <a href="#" onClick={logoutHandler} className="jewel-nav-link">
-              Logout
-            </a>
-          </li>
+          {userInfo && (
+            <li>
+              <a href="#" onClick={logoutHandler} className="drpdown-item">
+                Logout
+              </a>
+            </li>
+          )}
         </div>
       </div>
     </nav>
