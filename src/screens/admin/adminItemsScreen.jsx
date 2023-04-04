@@ -62,7 +62,7 @@ const AdminItemsScreen = () => {
             {loading ? (
               <LoadingSpinner />
             ) : error ? (
-              <p>error</p>
+              <p>{error}</p>
             ) : (
               <React.Fragment>
                 <div className="content-container">

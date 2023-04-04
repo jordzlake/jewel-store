@@ -150,7 +150,7 @@ const AdminItemsDetailsScreen = () => {
               <h3>{error}</h3>
             ) : (
               <React.Fragment>
-                <div className="mb-5">
+                <div className="mb-5 admin-top-initial-container">
                   <h2 className="admin-header admin-inline">
                     Editing: {item.name}
                   </h2>
@@ -443,9 +443,11 @@ const AdminItemsDetailsScreen = () => {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn jewel-btn-orange">
-                    Update Item
-                  </button>
+                  <div className="w-100 d-flex center">
+                    <button type="submit" className="btn jewel-btn-orange">
+                      Update Item
+                    </button>
+                  </div>
                 </form>
               </React.Fragment>
             )}

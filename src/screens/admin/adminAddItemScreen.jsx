@@ -151,7 +151,7 @@ const AdminAddItemScreen = () => {
               <h3>{error}</h3>
             ) : (
               <React.Fragment>
-                <div className="mb-5">
+                <div className="mb-5 admin-top-initial-container">
                   <h2 className="admin-header admin-inline">Add New Item</h2>
                   <Link className="admin-header-backlink" to="/admin/items">
                     Go to Items
@@ -442,9 +442,11 @@ const AdminAddItemScreen = () => {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn jewel-btn-orange">
-                    Add Item
-                  </button>
+                  <div className="w-100 d-flex center">
+                    <button type="submit" className="btn jewel-btn-orange">
+                      Add Item
+                    </button>
+                  </div>
                 </form>
               </React.Fragment>
             )}
