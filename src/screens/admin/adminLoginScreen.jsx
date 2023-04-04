@@ -40,9 +40,9 @@ const AdminLogin = () => {
           style={{ maxWidth: "380px", marginTop: "100px" }}
         >
           <div className="card-body">
-            <h4 className="card-title mb-4 text-center">
+            <h3 className="card-title mb-4 text-center">
               Jewel Admin Portal Login
-            </h4>
+            </h3>
             <form onSubmit={submitHandler}>
               <div className="mb-3">
                 <input
@@ -63,11 +63,8 @@ const AdminLogin = () => {
                 />
               </div>
 
-              <div className="mb-4">
-                <button
-                  type="submit"
-                  className="jewel-admin-btn jewel-rounded p-1 w-100"
-                >
+              <div className="mb-4 text-center">
+                <button type="submit" className="jewel-admin-btn jewel-rounded">
                   Login
                 </button>
               </div>

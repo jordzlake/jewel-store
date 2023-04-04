@@ -11,6 +11,8 @@ import AdminLogin from "./screens/admin/adminLoginScreen";
 import AdminHomeScreen from "./screens/admin/adminHome";
 import PrivateRoute from "./PrivateRoute";
 import AdminItemsScreen from "./screens/admin/adminItemsScreen";
+import AdminItemsDetailsScreen from "./screens/admin/adminItemsDetailsScreen";
+import AdminAddItemScreen from "./screens/admin/adminAddItemScreen";
 
 function App() {
   return (
@@ -29,13 +31,19 @@ function App() {
           <Route path="/admin/items" element={<AdminItemsScreen />} />
         </Route>
         <Route path="/admin/additem" element={<PrivateRoute />}>
-          <Route path="/admin/additem" element={<AdminHomeScreen />} />
+          <Route path="/admin/additem" element={<AdminAddItemScreen />} />
         </Route>
-        <Route path="/admin/catagories" element={<PrivateRoute />}>
-          <Route path="/admin/catagories" element={<AdminHomeScreen />} />
+        <Route path="/admin/site" element={<PrivateRoute />}>
+          <Route path="/admin/site" element={<AdminHomeScreen />} />
         </Route>
         <Route path="/admin/messages" element={<PrivateRoute />}>
           <Route path="/admin/messages" element={<AdminHomeScreen />} />
+        </Route>
+        <Route path="/admin/items/:id" element={<PrivateRoute />}>
+          <Route
+            path="/admin/items/:id"
+            element={<AdminItemsDetailsScreen />}
+          />
         </Route>
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>

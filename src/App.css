@@ -1219,6 +1219,10 @@ a {
   text-shadow: none;
   font-weight: bold;
   color: var(--white);
+  width: 80%;
+  padding: 8px;
+  font-size: large;
+  margin-top: 15px;
 }
 
 .jewel-transparent-alter:hover {
@@ -1226,7 +1230,7 @@ a {
 }
 
 .jewel-rounded {
-  border-radius: 12px;
+  border-radius: 22px;
 }
 
 .jewel-small {
@@ -1246,6 +1250,17 @@ a {
 }
 .jewel-orange {
   color: var(--orange);
+}
+.jewel-btn-orange {
+  color: var(--white);
+  background-color: var(--orange);
+  border: 1px solid transparent;
+}
+.jewel-btn-orange:hover {
+  color: var(--orange);
+  font-weight: bold;
+  border: 1px solid var(--orange);
+  background-color: transparent;
 }
 .jewel-black {
   color: var(--dark-text);
@@ -1268,7 +1283,6 @@ a {
 
 /* Main Admin Screen*/
 .login-container {
-  height: 100vh;
   padding-top: 72px;
 }
 /* Sidebar */
@@ -1420,8 +1434,26 @@ a {
 .main-display {
   flex-grow: 1;
 }
+
+.jewel-admin-side-btn {
+  background-color: var(--orange);
+  border-color: transparent;
+  text-shadow: none;
+  font-weight: bold;
+  color: var(--white);
+  padding: 8px;
+  font-size: large;
+  margin-top: 30px;
+}
+.admin-search-container {
+  width: 100%;
+  text-align: center;
+}
 /*Admin Small devices (tablets, 768px and down)*/
-@media (max-width: 500px) {
+@media (max-width: 700px) {
+  .admin-header {
+    text-align: center;
+  }
   .btn-aside-show {
     display: flex;
   }
@@ -1438,8 +1470,12 @@ a {
   .admin-header {
     text-align: center;
   }
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
-@media (min-width: 500px) {
+@media (min-width: 701px) {
   .navbar-aside.hide {
     left: 0px;
   }
@@ -1459,6 +1495,8 @@ a {
 .admin-items-searchbar {
   margin: 20px 0;
   text-align: center;
+  padding: 5px;
+  font-size: large;
 }
 .content-container {
   display: flex;
@@ -1466,10 +1504,72 @@ a {
   align-items: center;
 }
 .admin-items-container {
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  width: 100%;
+}
+
+.admin-items-container .card-info-container {
+  color: var(--white);
+  background: var(--orange-grad);
+}
+
+.admin-items-card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 300px;
+  min-width: 300px;
+  margin: 20px;
+}
+/*Flexy Stuff*/
+@media (max-width: 600px) {
+  .admin-items-card {
+    flex-basis: calc(80% + 40px);
+    min-width: unset;
+  }
+}
+.admin-items-card:last-child {
+  align-self: flex-start;
+}
+
+.buttons-edit-icon-container {
+  float: right;
+  padding-left: 5px;
+}
+.admin-edit-icon {
+  margin-bottom: 10px;
+  font-size: larger;
+}
+.admin-pencil-icon {
+  color: lightseagreen;
+}
+.admin-delete-icon {
+  color: var(--red);
+}
+/* Edit Item Details*/
+.admin-header-backlink {
+  float: right;
+  display: inline;
+}
+.admin-inline {
+  display: inline;
+}
+.admin-form-heading {
+  font-size: x-large;
+  font-weight: bold;
+}
+.admin-plus {
+  color: white;
+  background-color: var(--orange);
+  border: none;
+}
+.main-display .form-label {
+  font-weight: bold;
+}
+.admin-times {
+  color: var(--orange);
+  background-color: transparent;
+  border: none;
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -11,7 +11,7 @@ const AdminSidebar = () => {
     <div className="sidebar-out-container">
       <div>
         <button
-          className="jewel-admin-btn btn btn-icon btn-aside-show"
+          className="jewel-admin-side-btn btn btn-icon btn-aside-show"
           onClick={toggleMenu}
         >
           <i className="aside-show-icon fas fa-stream"></i>
@@ -56,7 +56,7 @@ const AdminSidebar = () => {
                 <li className="menu-item">
                   <NavLink className="menu-link" to="/admin/catagories">
                     <i className="icon fas fa-list"></i>
-                    <span className="text">Categories</span>
+                    <span className="text">Site Values</span>
                   </NavLink>
                 </li>
                 <li className="menu-item">

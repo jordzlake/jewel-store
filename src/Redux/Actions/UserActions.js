@@ -37,7 +37,6 @@ export const login = (username, password) => async (dispatch) => {
       });
     } else {
       dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-      toast.success("Login Success", ToastObjects);
     }
 
     localStorage.setItem("userInfo", JSON.stringify(data));
@@ -61,4 +60,5 @@ export const login = (username, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
+  window.location.reload();
 };
