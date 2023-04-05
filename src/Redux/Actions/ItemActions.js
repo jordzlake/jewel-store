@@ -141,6 +141,7 @@ export const itemCreate =
       const config = {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
+          "Content-Type": "application/json",
         },
       };
 
@@ -181,7 +182,11 @@ export const itemCreate =
         type: ITEM_CREATE_FAIL,
         payload: message,
       });
-      toast.error(message, ToastObjects);
+      let err;
+      message.toLowerCase() == "Network Error".toLowerCase()
+        ? (err = "Images may be too large")
+        : (err = message);
+      toast.error(err, ToastObjects);
     }
   };
 

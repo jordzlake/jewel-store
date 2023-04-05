@@ -53,18 +53,18 @@ const AdminSidebar = () => {
                     <span className="text">Add New Item</span>
                   </NavLink>
                 </li>
-                <li className="menu-item">
+                {/*<li className="menu-item">
                   <NavLink className="menu-link" to="/admin/catagories">
                     <i className="icon fas fa-list"></i>
                     <span className="text">Site Values</span>
                   </NavLink>
-                </li>
+  </li>
                 <li className="menu-item">
                   <NavLink className="menu-link" to="/admin/messages">
                     <i className="icon fas fa-mailbox"></i>
                     <span className="text">Messages</span>
                   </NavLink>
-                </li>
+                </li>*/}
               </ul>
               <br />
               <br />

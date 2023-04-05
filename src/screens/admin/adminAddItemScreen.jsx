@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { itemCreate } from "../../Redux/Actions/ItemActions";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { Link } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 
 const AdminAddItemScreen = () => {
   const [name, setName] = useState("");
@@ -33,7 +34,7 @@ const AdminAddItemScreen = () => {
     if (item) {
       setName("");
       setPrice("");
-      setType("");
+      setType("home");
       setMainImage("");
       setSubImages([]);
       setStreet("");
@@ -51,6 +52,25 @@ const AdminAddItemScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(
+      JSON.stringify(
+        name,
+        price,
+        type,
+        mainImage,
+        subImages,
+        street,
+        city,
+        country,
+        interiorFeatures,
+        exteriorFeatures,
+        bedrooms,
+        bathrooms,
+        description,
+        size,
+        mapIframe
+      )
+    );
     dispatch(
       itemCreate(
         name,
@@ -69,23 +89,6 @@ const AdminAddItemScreen = () => {
         size,
         mapIframe
       )
-    );
-    console.log(
-      name,
-      price,
-      type,
-      mainImage,
-      subImages,
-      street,
-      city,
-      country,
-      interiorFeatures,
-      exteriorFeatures,
-      bedrooms,
-      bathrooms,
-      description,
-      size,
-      mapIframe
     );
   };
   const handleCurrency = (e) => {
@@ -123,20 +126,74 @@ const AdminAddItemScreen = () => {
     );
   };
 
-  const handleAddSubImage = () => {
-    const subImageLocation = window.prompt("Enter a subImage Location:");
+  //Image Code
 
-    if (subImageLocation) {
-      setSubImages([...subImages, subImageLocation]);
+  const handleMainImageChange = async (e) => {
+    const file = e.target.files[0];
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 720,
+      alwaysKeepResolution: false,
+    };
+    try {
+      const compressedFile = await imageCompression(file, options);
+      console.log(
+        "Size",
+        (compressedFile.size / 1024 / 1024).toFixed(2) + " MB"
+      );
+      const reader = new FileReader();
+      reader.readAsDataURL(compressedFile);
+      reader.onloadend = () => {
+        setMainImage(reader.result);
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleSubImageChange = async (e) => {
+    const file = e.target.files[0];
+    let subImagesTemp = [...subImages];
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 720,
+      alwaysKeepResolution: false,
+    };
+    try {
+      const compressedFile = await imageCompression(file, options);
+      console.log(
+        "Size",
+        (compressedFile.size / 1024 / 1024).toFixed(2) + " MB"
+      );
+      const reader = new FileReader();
+      reader.readAsDataURL(compressedFile);
+      reader.onloadend = () => {
+        subImagesTemp = [...subImagesTemp, reader.result];
+        setSubImages(subImagesTemp);
+      };
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const handleRemoveSubImage = (indexToRemove) => {
-    setSubImages((prevSubImage) =>
-      prevSubImage.filter((_, index) => index !== indexToRemove)
-    );
+  /*const submitHandler = (e) => {
+    e.preventDefault();
+    if (!previewSource) return;
+    uploadImage(previewSource);
   };
 
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      let config = {
+        method: "POST",
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { "Content-type": "application/json" },
+      };
+      await fetch(`${URL}/api/upload`, config);
+    } catch (error) {
+      console.error(error);
+    }
+  };*/
   return (
     <div>
       <AdminHeader />
@@ -148,7 +205,22 @@ const AdminAddItemScreen = () => {
             {loading ? (
               <LoadingSpinner />
             ) : error ? (
-              <h3>{error}</h3>
+              <React.Fragment>
+                <h3>
+                  Add Unsuccessful: Images may be too large or the following
+                  occured: {error}
+                </h3>
+                <Link
+                  className="admin-header-backlink"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.reload();
+                  }}
+                  to="/admin/addItem"
+                >
+                  Go back to Add Item Screen
+                </Link>
+              </React.Fragment>
             ) : (
               <React.Fragment>
                 <div className="mb-5 admin-top-initial-container">
@@ -400,7 +472,110 @@ const AdminAddItemScreen = () => {
                     </div>
                   </div>
                   <h3 className="admin-form-heading mb-3">Images</h3>
-                  <div className="mb-4 row">
+                  <div className="mb-4 row align-items-center">
+                    <div className="col-lg-6 col-sm-12 p-2">
+                      <label htmlFor="item_mainImage" className="form-label">
+                        Main Image
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control"
+                        id="item_mainImage"
+                        onChange={handleMainImageChange}
+                      />
+                    </div>
+                    <div className="col-lg-6 col-sm-12 p-2 previewImage">
+                      {mainImage && (
+                        <img
+                          src={mainImage}
+                          alt="chosen"
+                          style={{ height: "250px" }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  {mainImage && (
+                    <div className="mb-4 row align-items-center">
+                      <div className="col-lg-6 col-sm-12 p-2">
+                        <label
+                          htmlFor="item_subImage_zero"
+                          className="form-label"
+                        >
+                          Sub Image 1 (Optional)
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="item_subImage_zero"
+                          onChange={handleSubImageChange}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-sm-12 p-2 previewImage">
+                        {subImages[0] && (
+                          <img
+                            src={subImages[0]}
+                            alt="chosen"
+                            style={{ height: "250px" }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {subImages[0] && (
+                    <div className="mb-4 row align-items-center">
+                      <div className="col-lg-6 col-sm-12 p-2">
+                        <label
+                          htmlFor="item_subImage_one"
+                          className="form-label"
+                        >
+                          Sub Image 2 (Optional)
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="item_subImage_one"
+                          onChange={handleSubImageChange}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-sm-12 p-2 previewImage">
+                        {subImages[1] && (
+                          <img
+                            src={subImages[1]}
+                            alt="chosen"
+                            style={{ height: "250px" }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {subImages[1] && (
+                    <div className="mb-4 row align-items-center">
+                      <div className="col-lg-6 col-sm-12 p-2">
+                        <label
+                          htmlFor="item_subImage_two"
+                          className="form-label"
+                        >
+                          Sub Image 3 (Optional)
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="item_subImage_two"
+                          onChange={handleSubImageChange}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-sm-12 p-2 previewImage">
+                        {subImages[2] && (
+                          <img
+                            src={subImages[2]}
+                            alt="chosen"
+                            style={{ height: "250px" }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {/*<div className="mb-4 row">
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_mainImage" className="form-label">
                         Main Image
@@ -413,6 +588,21 @@ const AdminAddItemScreen = () => {
                         value={mainImage}
                         onChange={(e) => setMainImage(e.target.value)}
                       />
+                      
+                    </div>
+                    <div className="col-lg-6 col-sm-12 p-2">
+                      <label htmlFor="item_mainImage" className="form-label">
+                        Main Image
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter Main Image Location"
+                        className="form-control"
+                        id="item_mainImage"
+                        value={mainImage}
+                        onChange={(e) => setMainImage(e.target.value)}
+                      />
+                      
                     </div>
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_subImages" className="form-label">
@@ -441,7 +631,7 @@ const AdminAddItemScreen = () => {
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </div>*/}
                   <div className="w-100 d-flex center">
                     <button type="submit" className="btn jewel-btn-orange">
                       Add Item

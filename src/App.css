@@ -1583,7 +1583,11 @@ a {
   background-color: transparent;
   border: none;
 }
-
+.previewImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* dashboard */
 .main-graph-container {
   display: flex;
