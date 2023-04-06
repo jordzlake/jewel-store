@@ -19,7 +19,13 @@ const Rentals = ({ items, loading }) => {
           </div>
           {loading === false ? (
             items && (
-              <Slider {...settings}>
+              <Slider
+                {...settings}
+                infinite={
+                  items.filter((temp) => temp.type === "rent").length >
+                  settings.slidesToShow
+                }
+              >
                 {items
                   .filter((temp) => temp.type === "rent")
                   .map((listitem) => (
