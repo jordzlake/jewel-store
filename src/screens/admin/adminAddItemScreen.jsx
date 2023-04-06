@@ -32,10 +32,10 @@ const AdminAddItemScreen = () => {
   const itemCreateState = useSelector((state) => state.itemCreate);
   const { loading, error, item } = itemCreateState;
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (item) {
       setName("");
-      setPrice("");
+      setPrice("$0.00TTD");
       setType("home");
       setMainImage(null);
       setSubImages([null, null, null]);
@@ -48,10 +48,10 @@ const AdminAddItemScreen = () => {
       setBathrooms(0);
       setDescription("");
       setSize("");
-      setMapIframe("");
+      setMapIframe("0,0");
       setImagePreview(["", "", "", ""]);
     }
-  }, [item, dispatch]); */
+  }, [item, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
