@@ -268,6 +268,12 @@ const SingleItemScreen = () => {
                       bootstrapURLKeys={{
                         key: process.env.GOOGLE_API_KEY,
                       }}
+                      options={{
+                        scrollwheel: false,
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                        streetViewControl: false,
+                      }}
                       center={{ lat: lat, lng: lng }}
                       zoom={13}
                     >
