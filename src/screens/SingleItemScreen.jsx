@@ -266,7 +266,7 @@ const SingleItemScreen = () => {
                   <div style={{ height: "200px", width: "100%" }}>
                     <GoogleMapReact
                       bootstrapURLKeys={{
-                        key: "AIzaSyBUMEXFgVOhU4cKpATnnIB_rQ7Nv4SE_TI",
+                        key: process.env.GOOGLE_API_KEY,
                       }}
                       center={{ lat: lat, lng: lng }}
                       zoom={13}
