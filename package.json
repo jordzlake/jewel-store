@@ -25,9 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "generate-meta-tag": "node ./node_modules/react-cache-buster/dist/generate-meta-tag.js",
     "start": "react-scripts start",
-    "build": "npm run generate-meta-tag && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
