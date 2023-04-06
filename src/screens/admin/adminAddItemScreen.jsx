@@ -92,7 +92,7 @@ const AdminAddItemScreen = () => {
   };
   const handleCoords = (e) => {
     const input = e.target.value.trim();
-    const regex = /^(\d+(?:\.\d*)?|\.\d+),(\d+(?:\.\d*)?|\.\d+)$/;
+    const regex = /^(\s*-?\d+(\.\d*)?|\.\d+)\s*,\s*(-?\d+(\.\d*)?|\.\d+)\s*$/;
     if (regex.test(input)) {
       const [firstNum, secondNum] = input.split(",");
       const num1 = Number(firstNum);
