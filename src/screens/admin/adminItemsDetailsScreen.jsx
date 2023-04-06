@@ -93,7 +93,19 @@ const AdminItemsDetailsScreen = () => {
     const formattedValue = `$${Number(inputValue).toLocaleString("en")}.00TTD`;
     setPrice(formattedValue);
   };
-
+  const handleCoords = (e) => {
+    const input = e.target.value.trim();
+    const regex = /^(\d+(?:\.\d*)?|\.\d+),(\d+(?:\.\d*)?|\.\d+)$/;
+    if (regex.test(input)) {
+      const [firstNum, secondNum] = input.split(",");
+      const num1 = Number(firstNum);
+      const num2 = Number(secondNum);
+      const formattedNums = `${num1},${num2}`;
+      setMapIframe(formattedNums);
+    } else {
+      setMapIframe("0,0");
+    }
+  };
   const handleAddInteriorFeature = () => {
     const featureValue = window.prompt("Enter an interior feature:");
 
@@ -353,6 +365,7 @@ const AdminItemsDetailsScreen = () => {
                       </div>
                     </div>
                   )}
+
                   <div className="mb-4 row">
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_size" className="form-label">
@@ -369,20 +382,32 @@ const AdminItemsDetailsScreen = () => {
                     </div>
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_map" className="form-label">
-                        Item Map Coordinates
+                        Item Map Coordinates (Lat,Lng)
                       </label>
+
                       <input
                         type="text"
                         placeholder="Enter Item Coordinates"
                         className="form-control"
                         id="item_map"
                         value={mapIframe}
+                        onBlur={handleCoords}
                         onChange={(e) => {
                           setMapIframe(e.target.value);
                         }}
                       />
+                      <p>
+                        Right click on Google map to get values:{" "}
+                        <a
+                          target="_blank"
+                          href="https://www.google.com/maps/@10.4840912,-61.3655086,10z"
+                        >
+                          Click to see map.
+                        </a>
+                      </p>
                     </div>
                   </div>
+
                   <div className="mb-4 row">
                     <div className="col-lg-12 p-2">
                       <label htmlFor="item_description" className="form-label">

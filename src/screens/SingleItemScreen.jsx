@@ -11,9 +11,13 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { URL } from "../Url";
 import LoadingSpinner from "../components/LoadingSpinner";
+import GoogleMapReact from "google-map-react";
+import MarkerComponent from "./../components/Marker";
 
 const SingleItemScreen = () => {
   //Feedback
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [contact, setContact] = useState("");
@@ -29,6 +33,7 @@ const SingleItemScreen = () => {
     city: "",
     street: "",
     country: "",
+    mapIframe: "",
   });
 
   const handleSubmit = (e) => {
@@ -63,7 +68,15 @@ const SingleItemScreen = () => {
   useEffect(() => {
     if (items) {
       if (items.length > 0) {
-        setItem(items.find((temp) => temp._id === id));
+        let temp = items.find((temp) => temp._id === id);
+        console.log(temp.mapIframe.split(","));
+        let coords = temp.mapIframe.split(",");
+        let templat = coords[0];
+        let templng = coords[1];
+        console.log(templat, templng);
+        setLat(Number(templat));
+        setLng(Number(templng));
+        setItem(temp);
       } else {
         setItem({
           subImages: [],
@@ -74,6 +87,7 @@ const SingleItemScreen = () => {
           city: "",
           street: "",
           country: "",
+          mapIframe: "",
         });
       }
     }
@@ -249,7 +263,23 @@ const SingleItemScreen = () => {
                   </form>
                 </div>
                 <div className="si-map-container">
-                  <h2 className="si-map-heading">Map</h2>
+                  <div style={{ height: "200px", width: "100%" }}>
+                    <GoogleMapReact
+                      bootstrapURLKeys={{
+                        key: "AIzaSyBUMEXFgVOhU4cKpATnnIB_rQ7Nv4SE_TI",
+                      }}
+                      center={{ lat: lat, lng: lng }}
+                      zoom={13}
+                    >
+                      <MarkerComponent
+                        style={{ zIndex: "2" }}
+                        width="50"
+                        lat={lat}
+                        lng={lng}
+                      />
+                    </GoogleMapReact>
+                  </div>
+                  {/* <h2 className="si-map-heading">Map</h2>
                   <iframe
                     src={item.mapIframe}
                     width="100%"
@@ -269,7 +299,7 @@ const SingleItemScreen = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

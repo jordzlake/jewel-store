@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Toast from "./../../components/Toast";
 import AdminHeader from "./../../components/admin/AdminHeader";
 import AdminSidebar from "./../../components/admin/AdminSidebar";
+import { useDispatch, useSelector } from "react-redux";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import { listItem } from "../../Redux/Actions/ItemActions";
 
 const AdminHomeScreen = () => {
+  const dispatch = useDispatch();
+  const itemList = useSelector((state) => state.itemList);
+  const { loading, error, items } = itemList;
+
+  useEffect(() => {
+    dispatch(listItem());
+  }, [dispatch]);
+
   return (
     <div>
       <AdminHeader />
@@ -32,17 +43,21 @@ const AdminHomeScreen = () => {
                   <div className="top-cards">
                     <div className="card">
                       <h3 className="card-title">Number of Items</h3>
-                      <p className="admin-card-content">10</p>
+                      {loading ? (
+                        <LoadingSpinner />
+                      ) : (
+                        <p className="admin-card-content">{items.length}</p>
+                      )}
                     </div>
-                    <div className="card">
+                    {/*                     <div className="card">
                       <h3 className="card-title">Number of Requests</h3>
                       <p className="admin-card-content">2</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
               <div className="admin-dashboard-bottom-container col-lg-12">
-                <h3 className="card-title">Recent Requests</h3>
+                {/* <h3 className="card-title">Recent Requests</h3> */}
               </div>
             </div>
           </div>

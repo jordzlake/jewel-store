@@ -10,7 +10,7 @@ import imageCompression from "browser-image-compression";
 
 const AdminAddItemScreen = () => {
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState("$0.00TTD");
   const [type, setType] = useState("home");
   const [mainImage, setMainImage] = useState(null);
   const [subImages, setSubImages] = useState([null, null, null]);
@@ -23,7 +23,7 @@ const AdminAddItemScreen = () => {
   const [bathrooms, setBathrooms] = useState(0);
   const [description, setDescription] = useState("");
   const [size, setSize] = useState("");
-  const [mapIframe, setMapIframe] = useState("");
+  const [mapIframe, setMapIframe] = useState("0,0");
 
   const [imagePreview, setImagePreview] = useState(["", "", "", ""]);
 
@@ -89,6 +89,19 @@ const AdminAddItemScreen = () => {
     inputValue = inputValue.replace(/[^\d.]/g, "");
     const formattedValue = `$${Number(inputValue).toLocaleString("en")}.00TTD`;
     setPrice(formattedValue);
+  };
+  const handleCoords = (e) => {
+    const input = e.target.value.trim();
+    const regex = /^(\d+(?:\.\d*)?|\.\d+),(\d+(?:\.\d*)?|\.\d+)$/;
+    if (regex.test(input)) {
+      const [firstNum, secondNum] = input.split(",");
+      const num1 = Number(firstNum);
+      const num2 = Number(secondNum);
+      const formattedNums = `${num1},${num2}`;
+      setMapIframe(formattedNums);
+    } else {
+      setMapIframe("0,0");
+    }
   };
 
   const handleAddInteriorFeature = () => {
@@ -402,6 +415,7 @@ const AdminAddItemScreen = () => {
                       </div>
                     </div>
                   )}
+
                   <div className="mb-4 row">
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_size" className="form-label">
@@ -418,20 +432,32 @@ const AdminAddItemScreen = () => {
                     </div>
                     <div className="col-lg-6 col-sm-12 p-2">
                       <label htmlFor="item_map" className="form-label">
-                        Item Map Coordinates
+                        Item Map Coordinates (Lat,Lng)
                       </label>
+
                       <input
                         type="text"
                         placeholder="Enter Item Coordinates"
                         className="form-control"
                         id="item_map"
                         value={mapIframe}
+                        onBlur={handleCoords}
                         onChange={(e) => {
                           setMapIframe(e.target.value);
                         }}
                       />
+                      <p>
+                        Right click on Google map to get values:{" "}
+                        <a
+                          target="_blank"
+                          href="https://www.google.com/maps/@10.4840912,-61.3655086,10z"
+                        >
+                          Click to see map.
+                        </a>
+                      </p>
                     </div>
                   </div>
+
                   <div className="mb-4 row">
                     <div className="col-lg-12 p-2">
                       <label htmlFor="item_description" className="form-label">
