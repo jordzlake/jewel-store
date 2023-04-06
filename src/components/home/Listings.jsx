@@ -21,18 +21,34 @@ const Listings = ({ items, loading }) => {
             </p>
           </div>
           {loading === false ? (
-            <Slider
-              {...settings}
-              infinite={
-                10 > settings.slidesToShow &&
-                items.length > settings.slidesToShow
-              }
-            >
-              {items.length >= 10
-                ? items
-                    .slice(-10)
-                    .reverse()
-                    .map((listitem) => (
+            items && (
+              <Slider
+                {...settings}
+                infinite={
+                  10 > settings.slidesToShow &&
+                  items.length > settings.slidesToShow
+                }
+              >
+                {items.length >= 10
+                  ? items
+                      .slice(-10)
+                      .reverse()
+                      .map((listitem) => (
+                        <div key={listitem._id}>
+                          <Card
+                            name={listitem.name}
+                            price={listitem.price}
+                            bedrooms={listitem.bedrooms}
+                            bathrooms={listitem.bathrooms}
+                            size={listitem.size}
+                            im={listitem.mainImage}
+                            redir={`/item/${listitem._id}`}
+                            type={listitem.type}
+                            loc={listitem.city}
+                          />
+                        </div>
+                      ))
+                  : items.reverse().map((listitem) => (
                       <div key={listitem._id}>
                         <Card
                           name={listitem.name}
@@ -46,23 +62,9 @@ const Listings = ({ items, loading }) => {
                           loc={listitem.city}
                         />
                       </div>
-                    ))
-                : items.reverse().map((listitem) => (
-                    <div key={listitem._id}>
-                      <Card
-                        name={listitem.name}
-                        price={listitem.price}
-                        bedrooms={listitem.bedrooms}
-                        bathrooms={listitem.bathrooms}
-                        size={listitem.size}
-                        im={listitem.mainImage}
-                        redir={`/item/${listitem._id}`}
-                        type={listitem.type}
-                        loc={listitem.city}
-                      />
-                    </div>
-                  ))}
-            </Slider>
+                    ))}
+              </Slider>
+            )
           ) : (
             <LoadingSpinner />
           )}

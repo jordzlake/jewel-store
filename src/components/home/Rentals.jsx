@@ -18,25 +18,27 @@ const Rentals = ({ items, loading }) => {
             </p>
           </div>
           {loading === false ? (
-            <Slider {...settings}>
-              {items
-                .filter((temp) => temp.type === "rent")
-                .map((listitem) => (
-                  <div key={listitem._id}>
-                    <Card
-                      name={listitem.name}
-                      price={listitem.price}
-                      bedrooms={listitem.bedrooms}
-                      bathrooms={listitem.bathrooms}
-                      size={listitem.size}
-                      im={listitem.mainImage}
-                      redir={`/item/${listitem._id}`}
-                      type={"rent"}
-                      loc={listitem.city}
-                    />
-                  </div>
-                ))}
-            </Slider>
+            items && (
+              <Slider {...settings}>
+                {items
+                  .filter((temp) => temp.type === "rent")
+                  .map((listitem) => (
+                    <div key={listitem._id}>
+                      <Card
+                        name={listitem.name}
+                        price={listitem.price}
+                        bedrooms={listitem.bedrooms}
+                        bathrooms={listitem.bathrooms}
+                        size={listitem.size}
+                        im={listitem.mainImage}
+                        redir={`/item/${listitem._id}`}
+                        type={"rent"}
+                        loc={listitem.city}
+                      />
+                    </div>
+                  ))}
+              </Slider>
+            )
           ) : (
             <LoadingSpinner />
           )}

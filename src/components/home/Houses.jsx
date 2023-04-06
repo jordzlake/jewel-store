@@ -17,31 +17,33 @@ const Houses = ({ items, loading }) => {
             </p>
           </div>
           {loading === false ? (
-            <Slider
-              {...settings}
-              infinite={
-                items.filter((temp) => temp.type === "home").length >
-                settings.slidesToShow
-              }
-            >
-              {items
-                .filter((temp) => temp.type === "home")
-                .map((listitem) => (
-                  <div key={listitem._id}>
-                    <Card
-                      name={listitem.name}
-                      price={listitem.price}
-                      bedrooms={listitem.bedrooms}
-                      bathrooms={listitem.bathrooms}
-                      size={listitem.size}
-                      im={listitem.mainImage}
-                      redir={`/item/${listitem._id}`}
-                      type={"home"}
-                      loc={listitem.city}
-                    />
-                  </div>
-                ))}
-            </Slider>
+            items && (
+              <Slider
+                {...settings}
+                infinite={
+                  items.filter((temp) => temp.type === "home").length >
+                  settings.slidesToShow
+                }
+              >
+                {items
+                  .filter((temp) => temp.type === "home")
+                  .map((listitem) => (
+                    <div key={listitem._id}>
+                      <Card
+                        name={listitem.name}
+                        price={listitem.price}
+                        bedrooms={listitem.bedrooms}
+                        bathrooms={listitem.bathrooms}
+                        size={listitem.size}
+                        im={listitem.mainImage}
+                        redir={`/item/${listitem._id}`}
+                        type={"home"}
+                        loc={listitem.city}
+                      />
+                    </div>
+                  ))}
+              </Slider>
+            )
           ) : (
             <LoadingSpinner />
           )}
