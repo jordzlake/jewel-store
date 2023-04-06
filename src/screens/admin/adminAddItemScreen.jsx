@@ -12,8 +12,8 @@ const AdminAddItemScreen = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("home");
-  const [mainImage, setMainImage] = useState("");
-  const [subImages, setSubImages] = useState([]);
+  const [mainImage, setMainImage] = useState(null);
+  const [subImages, setSubImages] = useState([null, null, null]);
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
@@ -25,18 +25,20 @@ const AdminAddItemScreen = () => {
   const [size, setSize] = useState("");
   const [mapIframe, setMapIframe] = useState("");
 
+  const [imagePreview, setImagePreview] = useState(["", "", "", ""]);
+
   const dispatch = useDispatch();
 
   const itemCreateState = useSelector((state) => state.itemCreate);
   const { loading, error, item } = itemCreateState;
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (item) {
       setName("");
       setPrice("");
       setType("home");
-      setMainImage("");
-      setSubImages([]);
+      setMainImage(null);
+      setSubImages([null, null, null]);
       setStreet("");
       setCity("");
       setCountry("");
@@ -47,50 +49,41 @@ const AdminAddItemScreen = () => {
       setDescription("");
       setSize("");
       setMapIframe("");
+      setImagePreview(["", "", "", ""]);
     }
-  }, [item, dispatch]);
+  }, [item, dispatch]); */
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify(
-        name,
-        price,
-        type,
-        mainImage,
-        subImages,
-        street,
-        city,
-        country,
-        interiorFeatures,
-        exteriorFeatures,
-        bedrooms,
-        bathrooms,
-        description,
-        size,
-        mapIframe
-      )
-    );
-    dispatch(
-      itemCreate(
-        name,
-        price,
-        type,
-        mainImage,
-        subImages,
-        street,
-        city,
-        country,
-        interiorFeatures,
-        exteriorFeatures,
-        bedrooms,
-        bathrooms,
-        description,
-        size,
-        mapIframe
-      )
-    );
+
+    const jsonString = JSON.stringify({
+      name: name,
+      price: price,
+      type: type,
+      street: street,
+      city: city,
+      country: country,
+      interiorFeatures: [...interiorFeatures],
+      exteriorFeatures: [...exteriorFeatures],
+      bedrooms: bedrooms,
+      bathrooms: bathrooms,
+      description: description,
+      size: size,
+      mapIframe: mapIframe,
+    });
+    const formData = new FormData();
+    formData.append("data", jsonString);
+
+    formData.append("mainImage", mainImage);
+    for (let i = 0; i < subImages.length; i++) {
+      formData.append("subImages", subImages[i]);
+    }
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
+    dispatch(itemCreate(formData));
   };
+
   const handleCurrency = (e) => {
     let inputValue = e.target.value;
     inputValue = inputValue.replace(/[^\d.]/g, "");
@@ -132,68 +125,53 @@ const AdminAddItemScreen = () => {
     const file = e.target.files[0];
 
     const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 720,
-      alwaysKeepResolution: false,
+      maxSizeMB: 10,
     };
     try {
       const compressedFile = await imageCompression(file, options);
-      console.log(
+      /* console.log(
         "Size",
         (compressedFile.size / 1024 / 1024).toFixed(2) + " MB"
-      );
+      ); */
+      setMainImage(compressedFile);
+
       const reader = new FileReader();
       reader.readAsDataURL(compressedFile);
       reader.onloadend = () => {
-        setMainImage(reader.result);
+        let temp = [...imagePreview];
+        temp[0] = reader.result;
+        setImagePreview([...temp]);
       };
     } catch (error) {
       console.log(error);
     }
   };
-  const handleSubImageChange = async (e) => {
+  const handleSubImageChange = async (e, i) => {
     const file = e.target.files[0];
-    let subImagesTemp = [...subImages];
     const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 720,
-      alwaysKeepResolution: false,
+      maxSizeMB: 10,
     };
     try {
       const compressedFile = await imageCompression(file, options);
-      console.log(
+      /* console.log(
         "Size",
         (compressedFile.size / 1024 / 1024).toFixed(2) + " MB"
-      );
+      ); */
+      let imtemp = [...subImages];
+      imtemp[i - 1] = compressedFile;
+      setSubImages([...imtemp]);
       const reader = new FileReader();
       reader.readAsDataURL(compressedFile);
       reader.onloadend = () => {
-        subImagesTemp = [...subImagesTemp, reader.result];
-        setSubImages(subImagesTemp);
+        let temp = [...imagePreview];
+        temp[i] = reader.result;
+        setImagePreview([...temp]);
       };
     } catch (error) {
       console.log(error);
     }
   };
 
-  /*const submitHandler = (e) => {
-    e.preventDefault();
-    if (!previewSource) return;
-    uploadImage(previewSource);
-  };
-
-  const uploadImage = async (base64EncodedImage) => {
-    try {
-      let config = {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-type": "application/json" },
-      };
-      await fetch(`${URL}/api/upload`, config);
-    } catch (error) {
-      console.error(error);
-    }
-  };*/
   return (
     <div>
       <AdminHeader />
@@ -208,7 +186,7 @@ const AdminAddItemScreen = () => {
               <React.Fragment>
                 <h3>
                   Add Unsuccessful: Images may be too large or the following
-                  occured: {error}
+                  occurred: {error}
                 </h3>
                 <Link
                   className="admin-header-backlink"
@@ -471,6 +449,8 @@ const AdminAddItemScreen = () => {
                       ></textarea>
                     </div>
                   </div>
+
+                  {/* Images */}
                   <h3 className="admin-form-heading mb-3">Images</h3>
                   <div className="mb-4 row align-items-center">
                     <div className="col-lg-6 col-sm-12 p-2">
@@ -482,14 +462,15 @@ const AdminAddItemScreen = () => {
                         className="form-control"
                         id="item_mainImage"
                         onChange={handleMainImageChange}
+                        required
                       />
                     </div>
                     <div className="col-lg-6 col-sm-12 p-2 previewImage">
-                      {mainImage && (
+                      {imagePreview[0] && (
                         <img
-                          src={mainImage}
+                          src={imagePreview[0]}
                           alt="chosen"
-                          style={{ height: "250px" }}
+                          className="imPreview"
                         />
                       )}
                     </div>
@@ -501,21 +482,21 @@ const AdminAddItemScreen = () => {
                           htmlFor="item_subImage_zero"
                           className="form-label"
                         >
-                          Sub Image 1 (Optional)
+                          Additional Image 1 (Optional)
                         </label>
                         <input
                           type="file"
                           className="form-control"
                           id="item_subImage_zero"
-                          onChange={handleSubImageChange}
+                          onChange={(e) => handleSubImageChange(e, 1)}
                         />
                       </div>
                       <div className="col-lg-6 col-sm-12 p-2 previewImage">
-                        {subImages[0] && (
+                        {imagePreview[1] && (
                           <img
-                            src={subImages[0]}
+                            src={imagePreview[1]}
                             alt="chosen"
-                            style={{ height: "250px" }}
+                            className="imPreview"
                           />
                         )}
                       </div>
@@ -528,21 +509,21 @@ const AdminAddItemScreen = () => {
                           htmlFor="item_subImage_one"
                           className="form-label"
                         >
-                          Sub Image 2 (Optional)
+                          Additional Image 2 (Optional)
                         </label>
                         <input
                           type="file"
                           className="form-control"
                           id="item_subImage_one"
-                          onChange={handleSubImageChange}
+                          onChange={(e) => handleSubImageChange(e, 2)}
                         />
                       </div>
                       <div className="col-lg-6 col-sm-12 p-2 previewImage">
-                        {subImages[1] && (
+                        {imagePreview[2] && (
                           <img
-                            src={subImages[1]}
+                            src={imagePreview[2]}
                             alt="chosen"
-                            style={{ height: "250px" }}
+                            className="imPreview"
                           />
                         )}
                       </div>
@@ -555,83 +536,27 @@ const AdminAddItemScreen = () => {
                           htmlFor="item_subImage_two"
                           className="form-label"
                         >
-                          Sub Image 3 (Optional)
+                          Additional Image 3 (Optional)
                         </label>
                         <input
                           type="file"
                           className="form-control"
                           id="item_subImage_two"
-                          onChange={handleSubImageChange}
+                          onChange={(e) => handleSubImageChange(e, 3)}
                         />
                       </div>
                       <div className="col-lg-6 col-sm-12 p-2 previewImage">
-                        {subImages[2] && (
+                        {imagePreview[3] && (
                           <img
-                            src={subImages[2]}
+                            src={imagePreview[3]}
                             alt="chosen"
-                            style={{ height: "250px" }}
+                            className="imPreview"
                           />
                         )}
                       </div>
                     </div>
                   )}
-                  {/*<div className="mb-4 row">
-                    <div className="col-lg-6 col-sm-12 p-2">
-                      <label htmlFor="item_mainImage" className="form-label">
-                        Main Image
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter Main Image Location"
-                        className="form-control"
-                        id="item_mainImage"
-                        value={mainImage}
-                        onChange={(e) => setMainImage(e.target.value)}
-                      />
-                      
-                    </div>
-                    <div className="col-lg-6 col-sm-12 p-2">
-                      <label htmlFor="item_mainImage" className="form-label">
-                        Main Image
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter Main Image Location"
-                        className="form-control"
-                        id="item_mainImage"
-                        value={mainImage}
-                        onChange={(e) => setMainImage(e.target.value)}
-                      />
-                      
-                    </div>
-                    <div className="col-lg-6 col-sm-12 p-2">
-                      <label htmlFor="item_subImages" className="form-label">
-                        Secondary Images
-                      </label>
-                      {subImages &&
-                        subImages.map((subImage, index) => (
-                          <div key={index}>
-                            <span>{subImage}</span>
-                            <button
-                              type="button"
-                              className="admin-times"
-                              onClick={() => handleRemoveSubImage(index)}
-                            >
-                              <i className="fa fa-times"></i>
-                            </button>
-                          </div>
-                        ))}
-                      <div>
-                        <button
-                          type="button"
-                          className="admin-plus"
-                          onClick={handleAddSubImage}
-                        >
-                          <i className="fa fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>*/}
+
                   <div className="w-100 d-flex center">
                     <button type="submit" className="btn jewel-btn-orange">
                       Add Item

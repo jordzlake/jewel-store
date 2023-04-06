@@ -112,83 +112,45 @@ export const deleteItem = (id) => async (dispatch, getState) => {
 };
 
 //Admin item Create Action
-export const itemCreate =
-  (
-    name,
-    price,
-    type,
-    mainImage,
-    subImages,
-    street,
-    city,
-    country,
-    interiorFeatures,
-    exteriorFeatures,
-    bedrooms,
-    bathrooms,
-    description,
-    size,
-    mapIframe
-  ) =>
-  async (dispatch, getState) => {
-    try {
-      dispatch({ type: ITEM_CREATE_REQUEST });
+export const itemCreate = (formData) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: ITEM_CREATE_REQUEST });
 
-      const {
-        userLogin: { userInfo },
-      } = getState();
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${userInfo.token}`,
-          "Content-Type": "application/json",
-        },
-      };
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    };
 
-      const { data } = await axios.post(
-        `${URL}/api/items/`,
-        {
-          name,
-          price,
-          type,
-          mainImage,
-          subImages,
-          street,
-          city,
-          country,
-          interiorFeatures,
-          exteriorFeatures,
-          bedrooms,
-          bathrooms,
-          description,
-          size,
-          mapIframe,
-        },
-        config
-      );
+    const { data } = await axios.post(`${URL}/api/items/`, formData, config);
 
-      dispatch({ type: ITEM_CREATE_SUCCESS, payload: data });
-      toast.success("Item Added Successfully", ToastObjects);
-    } catch (error) {
-      const message =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message;
-      if (message === "Not authorized, token failed") {
-        dispatch(logout());
-      }
-
-      dispatch({
-        type: ITEM_CREATE_FAIL,
-        payload: message,
-      });
-      let err;
-      message.toLowerCase() == "Network Error".toLowerCase()
-        ? (err = "Images may be too large")
-        : (err = message);
-      toast.error(err, ToastObjects);
+    dispatch({ type: ITEM_CREATE_SUCCESS, payload: data });
+    toast.success("Item Added Successfully", ToastObjects);
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === "Not authorized, token failed") {
+      dispatch(logout());
     }
-  };
+
+    dispatch({
+      type: ITEM_CREATE_FAIL,
+      payload: message,
+    });
+    let err;
+    message.toLowerCase() == "Network Error".toLowerCase()
+      ? (err = "Images may be too large")
+      : (err = message);
+    toast.error(err, ToastObjects);
+  }
+};
 
 // UPDATE PRODUCT
 export const updateItem = (item) => async (dispatch, getState) => {
