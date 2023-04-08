@@ -273,7 +273,7 @@ const SingleItemScreen = () => {
                       height="100%"
                       style={{ border: 0 }}
                       referrerPolicy="no-referrer-when-downgrade"
-                      src={`https://www.google.com/maps/embed/v1/place?key=$AIzaSyDePyVi-wbE-flw-lvFts7Bgoffxr_BzTQ&q=${lat},${lng}`}
+                      src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDePyVi-wbE-flw-lvFts7Bgoffxr_BzTQ&q=${lat},${lng}`}
                       allowFullScreen
                     />
                     {/* <GoogleMapReact
