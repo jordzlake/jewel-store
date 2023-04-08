@@ -13,6 +13,7 @@ import { URL } from "../Url";
 import LoadingSpinner from "../components/LoadingSpinner";
 import GoogleMapReact from "google-map-react";
 import MarkerComponent from "./../components/Marker";
+import { StaticGoogleMap, Marker } from "react-static-google-map";
 
 const SingleItemScreen = () => {
   //Feedback
@@ -35,6 +36,8 @@ const SingleItemScreen = () => {
     country: "",
     mapIframe: "",
   });
+  const key = `${process.env.REACT_APP_GOOGLE_API_KEY}`;
+  console.log("key", key);
 
   const handleSubmit = (e) => {
     const messageToSend = message === "" ? e.target.message.value : message;
@@ -264,7 +267,16 @@ const SingleItemScreen = () => {
                 </div>
                 <div className="si-map-container">
                   <div style={{ height: "200px", width: "100%" }}>
-                    <GoogleMapReact
+                    <iframe
+                      title="map"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src={`https://www.google.com/maps/embed/v1/place?key=${key}&q=${lat},${lng}`}
+                      allowFullScreen
+                    />
+                    {/* <GoogleMapReact
                       bootstrapURLKeys={{
                         key: process.env.GOOGLE_API_KEY,
                       }}
@@ -283,7 +295,7 @@ const SingleItemScreen = () => {
                         lat={lat}
                         lng={lng}
                       />
-                    </GoogleMapReact>
+                    </GoogleMapReact> */}
                   </div>
                   {/* <h2 className="si-map-heading">Map</h2>
                   <iframe
