@@ -276,7 +276,7 @@ const SingleItemScreen = () => {
                       src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDePyVi-wbE-flw-lvFts7Bgoffxr_BzTQ&q=${lat},${lng}`}
                       allowFullScreen
                     />
-                    {/*<GoogleMapReact
+                    {/* <GoogleMapReact
                     bootstrapURLKeys={{
                         key: process.env.GOOGLE_API_KEY,
                       }}
