@@ -277,7 +277,7 @@ const SingleItemScreen = () => {
                       allowFullScreen
                     />
                     {/* <GoogleMapReact
-                      bootstrapURLKeys={{
+                    bootstrapURLKeys={{
                         key: process.env.GOOGLE_API_KEY,
                       }}
                       options={{
