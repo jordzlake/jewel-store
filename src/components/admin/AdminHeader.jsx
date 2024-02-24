@@ -47,7 +47,7 @@ const AdminHeader = () => {
               <Link to={"/admin"} className="">
                 <img
                   className="jewel-logo"
-                  src="/images/svgs/Logo.svg"
+                  src="/images/JewelLogo.jpg"
                   alt="Jewel"
                 />
               </Link>
