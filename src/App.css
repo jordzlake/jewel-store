@@ -631,9 +631,6 @@ a {
 }
 
 .gallery-card {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: calc(25% - 20px);
   margin: 10px;
 }
 .gallery-card:last-child {
@@ -1024,7 +1021,7 @@ a {
     width: 100px;
   }
   .gallery-card {
-    flex-basis: calc(33% - 20px);
+    width: 46.5%;
   }
 }
 @media (max-width: 785px) {
@@ -1099,7 +1096,7 @@ a {
     width: 50%;
   }
   .gallery-card {
-    flex-basis: calc(50% - 20px);
+    width: 100%;
   }
 }
 
@@ -1128,7 +1125,7 @@ a {
     font-size: large;
   }
   .gallery-card {
-    flex-basis: calc(100% - 20px);
+    width: 90%
   }
 }
 @media (max-width: 300px) {
