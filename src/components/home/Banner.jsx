@@ -63,13 +63,13 @@ const Banner = () => {
         <div className="j-carousel">
           <Slider {...fadesettings}>
             <div>
-              <img src="/images/IntroHouse2.jpg" alt="Intro House" />
+              <img src="/images/HomeBanner1.jpeg" alt="Intro House" />
             </div>
             <div>
-              <img src="/images/CityEscapeHouses2.jpg" alt="Intro House 2" />
+              <img src="/images/HomeBanner2.jpeg" alt="Intro House 2" />
             </div>
             <div>
-              <img src="/images/RedHouse2.jpg" alt="Intro House" />
+              <img src="/images/HomeBanner3.jpeg" alt="Intro House" />
             </div>
           </Slider>
         </div>
