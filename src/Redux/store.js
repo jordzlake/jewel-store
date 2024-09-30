@@ -9,6 +9,11 @@ import {
   itemUpdateReducer,
 } from "./Reducers/ItemReducers";
 import { userLoginReducer } from "./Reducers/UserReducers";
+import {
+  bannerImageCreateReducer,
+  bannerImageDeleteReducer,
+  bannerImageListReducer,
+} from "./Reducers/BannerImageReducers";
 
 const reducer = combineReducers({
   itemList: itemListReducer,
@@ -17,6 +22,9 @@ const reducer = combineReducers({
   itemDetail: itemDetailReducer,
   itemCreate: itemCreateReducer,
   itemUpdate: itemUpdateReducer,
+  bannerImageList: bannerImageListReducer,
+  bannerImageDelete: bannerImageDeleteReducer,
+  bannerImageCreate: bannerImageCreateReducer,
 });
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")

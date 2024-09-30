@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminItemsScreen from "./screens/admin/adminItemsScreen";
 import AdminItemsDetailsScreen from "./screens/admin/adminItemsDetailsScreen";
 import AdminAddItemScreen from "./screens/admin/adminAddItemScreen";
+import AdminBannerImagesScreen from "./screens/admin/adminBannerImagesScreen";
 
 function App() {
   return (
@@ -32,6 +33,12 @@ function App() {
         </Route>
         <Route path="/admin/additem" element={<PrivateRoute />}>
           <Route path="/admin/additem" element={<AdminAddItemScreen />} />
+        </Route>
+        <Route path="/admin/editbannerimages" element={<PrivateRoute />}>
+          <Route
+            path="/admin/editbannerimages"
+            element={<AdminBannerImagesScreen />}
+          />
         </Route>
         <Route path="/admin/site" element={<PrivateRoute />}>
           <Route path="/admin/site" element={<AdminHomeScreen />} />

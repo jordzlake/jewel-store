@@ -12,7 +12,10 @@ import {
 } from "./../Constants/BannerImageConstants";
 
 //List all items
-export const bannerImageListReducer = (state = { bannerImages: [] }, action) => {
+export const bannerImageListReducer = (
+  state = { bannerImages: [] },
+  action
+) => {
   switch (action.type) {
     case BANNER_IMAGE_LIST_REQUEST:
       return { loading: true, bannerImages: [] };
@@ -39,14 +42,13 @@ export const bannerImageDeleteReducer = (state = {}, action) => {
   }
 };
 
-
 //Create Item
 export const bannerImageCreateReducer = (state = {}, action) => {
   switch (action.type) {
     case BANNER_IMAGE_CREATE_REQUEST:
       return { loading: true };
     case BANNER_IMAGE_CREATE_SUCCESS:
-      return { loading: false, success: true, item: action.payload };
+      return { loading: false, success: true, bannerImage: action.payload };
     case BANNER_IMAGE_CREATE_FAIL:
       return { loading: false, error: action.payload };
     case BANNER_IMAGE_CREATE_RESET:

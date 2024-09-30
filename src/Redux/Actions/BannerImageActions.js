@@ -1,20 +1,14 @@
 import {
-  ITEM_LIST_REQUEST,
-  ITEM_LIST_FAIL,
-  ITEM_LIST_SUCCESS,
-  ITEM_DELETE_REQUEST,
-  ITEM_DELETE_SUCCESS,
-  ITEM_DELETE_FAIL,
-  ITEM_DETAIL_REQUEST,
-  ITEM_DETAIL_SUCCESS,
-  ITEM_DETAIL_FAIL,
-  ITEM_CREATE_REQUEST,
-  ITEM_CREATE_SUCCESS,
-  ITEM_CREATE_FAIL,
-  ITEM_UPDATE_REQUEST,
-  ITEM_UPDATE_SUCCESS,
-  ITEM_UPDATE_FAIL,
-} from "../Constants/ItemConstants";
+  BANNER_IMAGE_LIST_REQUEST,
+  BANNER_IMAGE_LIST_FAIL,
+  BANNER_IMAGE_LIST_SUCCESS,
+  BANNER_IMAGE_DELETE_REQUEST,
+  BANNER_IMAGE_DELETE_SUCCESS,
+  BANNER_IMAGE_DELETE_FAIL,
+  BANNER_IMAGE_CREATE_REQUEST,
+  BANNER_IMAGE_CREATE_SUCCESS,
+  BANNER_IMAGE_CREATE_FAIL,
+} from "../Constants/BannerImageConstants";
 import { URL } from "../../Url";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -28,17 +22,17 @@ const ToastObjects = {
 };
 
 //Get Items
-export const listItem = () => async (dispatch) => {
+export const listBannerImage = () => async (dispatch) => {
   try {
-    dispatch({ type: ITEM_LIST_REQUEST });
-    const { data } = await axios.get(`${URL}/api/items`);
+    dispatch({ type: BANNER_IMAGE_LIST_REQUEST });
+    const { data } = await axios.get(`${URL}/api/bannerImage`);
     dispatch({
-      type: ITEM_LIST_SUCCESS,
+      type: BANNER_IMAGE_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: ITEM_LIST_FAIL,
+      type: BANNER_IMAGE_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -47,35 +41,10 @@ export const listItem = () => async (dispatch) => {
   }
 };
 
-// Item Detail
-export const itemDetail = (id) => async (dispatch) => {
-  try {
-    dispatch({ type: ITEM_DETAIL_REQUEST });
-    const { data } = await axios.get(`${URL}/api/items/${id}`);
-    dispatch({
-      type: ITEM_DETAIL_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    if (message === "Not authorized, token failed") {
-      dispatch(logout());
-    }
-
-    dispatch({
-      type: ITEM_DETAIL_FAIL,
-      payload: message,
-    });
-  }
-};
-
 //Admin Item Delete By ID
-export const deleteItem = (id) => async (dispatch, getState) => {
+export const deleteBannerImage = (id) => async (dispatch, getState) => {
   try {
-    dispatch({ type: ITEM_DELETE_REQUEST });
+    dispatch({ type: BANNER_IMAGE_DELETE_REQUEST });
     const {
       userLogin: { userInfo },
     } = getState();
@@ -86,9 +55,9 @@ export const deleteItem = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`${URL}/api/items/${id}`, config);
-    dispatch({ type: ITEM_DELETE_SUCCESS });
-    dispatch(listItem());
+    await axios.delete(`${URL}/api/bannerImage/${id}`, config);
+    dispatch({ type: BANNER_IMAGE_DELETE_SUCCESS });
+    dispatch(listBannerImage());
     toast.success("Item Deleted Successfully", ToastObjects);
   } catch (error) {
     const message =
@@ -104,7 +73,7 @@ export const deleteItem = (id) => async (dispatch, getState) => {
     }
 
     dispatch({
-      type: ITEM_DELETE_FAIL,
+      type: BANNER_IMAGE_DELETE_FAIL,
       payload: message,
     });
     toast.error(message, ToastObjects);
@@ -112,9 +81,9 @@ export const deleteItem = (id) => async (dispatch, getState) => {
 };
 
 //Admin item Create Action
-export const itemCreate = (formData) => async (dispatch, getState) => {
+export const createBannerImage = (imageUrl) => async (dispatch, getState) => {
   try {
-    dispatch({ type: ITEM_CREATE_REQUEST });
+    dispatch({ type: BANNER_IMAGE_CREATE_REQUEST });
 
     const {
       userLogin: { userInfo },
@@ -123,14 +92,18 @@ export const itemCreate = (formData) => async (dispatch, getState) => {
     const config = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     };
 
-    const { data } = await axios.post(`${URL}/api/items/`, formData, config);
+    const { data } = await axios.post(
+      `${URL}/api/bannerImage/`,
+      { imageUrl },
+      config
+    );
 
-    dispatch({ type: ITEM_CREATE_SUCCESS, payload: data });
-    toast.success("Item Added Successfully", ToastObjects);
+    dispatch({ type: BANNER_IMAGE_CREATE_SUCCESS, payload: data });
+    toast.success("Banner Image Added Successfully", ToastObjects);
   } catch (error) {
     const message =
       error.response && error.response.data.message
@@ -141,55 +114,13 @@ export const itemCreate = (formData) => async (dispatch, getState) => {
     }
 
     dispatch({
-      type: ITEM_CREATE_FAIL,
+      type: BANNER_IMAGE_CREATE_FAIL,
       payload: message,
     });
     let err;
     message.toLowerCase() == "Network Error".toLowerCase()
-      ? (err = "Images may be too large")
+      ? (err = "Banner Image may be too large")
       : (err = message);
     toast.error(err, ToastObjects);
-  }
-};
-
-// UPDATE PRODUCT
-export const updateItem = (item) => async (dispatch, getState) => {
-  try {
-    dispatch({ type: ITEM_UPDATE_REQUEST });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.put(
-      `${URL}/api/items/${item._id}`,
-      item,
-      config
-    );
-
-    dispatch({ type: ITEM_UPDATE_SUCCESS, payload: data });
-    dispatch({ type: ITEM_DETAIL_SUCCESS, payload: data });
-    toast.success("Item Updated Successfully", ToastObjects);
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    if (message === "Not authorized, token failed") {
-      dispatch(logout());
-    }
-
-    dispatch({
-      type: ITEM_UPDATE_FAIL,
-      payload: message,
-    });
-    toast.error(message, ToastObjects);
   }
 };
